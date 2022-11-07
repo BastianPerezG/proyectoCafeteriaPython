@@ -2,10 +2,8 @@ from personas import Personas
 
 class Clientes(Personas):
     
-    def __init__(self, puntos, descuento, frecuente):
-        
-        super().__init__(self, run, nombre, app)
-        self.puntos = puntos
-        self.descuento = descuento
-        self.frecuente = frecuente
+    pass
+
+clienteA = Clientes("run: 22.222.222-2", "Gabriel", "Manzano Valdivia")
+print(clienteA.ver_persona())
         
