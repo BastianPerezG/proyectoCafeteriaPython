@@ -9,6 +9,6 @@ class Personas:
     # metodo para leer las instancias persona
     def ver_persona(self):
         # define lo que se pretende retornar
-        txt="{0} {1}, {2}"
+        txt="{0}, {1}, {2}"
         # retorna text en el formato run, nombre, app y lo que quiera agregar
         return txt.format(self.run, self.nombre, self.app)
