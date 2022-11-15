@@ -12,3 +12,6 @@ class Personas:
         txt="{0}, {1}, {2}"
         # retorna text en el formato run, nombre, app y lo que quiera agregar
         return txt.format(self.run, self.nombre, self.app)
+
+
+        
