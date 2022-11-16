@@ -24,5 +24,7 @@ class DataBase:
                         print(row)
         except Error as e:
             print(e)
-
+def execute_query(self.query):
+    pass
+db = DataBase()
 
