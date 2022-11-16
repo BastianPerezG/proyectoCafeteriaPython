@@ -13,7 +13,7 @@ class Clientes(Personas):
         self.puntos = puntos
         self.descto = descto
         self.cli_frecuente = cli_frecuente
-    def ver_cliente(self):
+    def crearCliente(self):
         pass
 
     
