@@ -14,10 +14,10 @@ class DataBase:
                 host="localhost",
                 user=self.user,
                 password=self.password,
-                database="cinema"
+                database="cafeteria_poo"
             ) as connection:
                 print(connection)
-                select = "SELECT * FROM person"
+                select = "SELECT * FROM personas"
                 with connection.cursor() as cursor:
                     cursor.execute(select)
                     for row in cursor.fetchall():
