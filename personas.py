@@ -1,3 +1,5 @@
+from conector import DataBase
+from getpass import getpass
 #La class Personas contiene los elementos run, nombre, etc
 class Personas:
     # constructor 
@@ -14,4 +16,11 @@ class Personas:
         return txt.format(self.run, self.nombre, self.app)
 
 
-        
+    def listar_todas_personas(self):
+        user = input("Ingrese nombre de usuario de la bd \n")
+        password = getpass("Ingrese la password del usuario \n")
+        db = DataBase(user,password)
+        db.conectar
+
+person = Personas("11.111.111-1", "Juan", "Pérez")
+person.listar_todas_personas()
