@@ -16,15 +16,17 @@ class DataBase:
                 password=self.password,
                 database="cafeteria_poo"
             ) as connection:
-                print(connection)
-                select = "SELECT * FROM personas"
                 with connection.cursor() as cursor:
-                    cursor.execute(select)
-                    for row in cursor.fetchall():
-                        print(row)
+                    cursor.execute("INSERT INTO personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE (111111113, 'Jose', 'Carcamo', 'Mata','123456789', 'jose.carcamo@gmail.com', '1940-04-10' )")
+                    connection.commit()
+                print(connection)
         except Error as e:
             print(e)
     def execute_query(self,query):
         pass
 
+
+
+db = DataBase("root", "Nokia2022")
+db.conectar()
 
