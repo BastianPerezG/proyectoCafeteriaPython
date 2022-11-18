@@ -5,8 +5,8 @@ from mysql.connector import connect, Error
 class DataBase:
 
     def __init__(self, user, password):
-        self.user = user
-        self.password = password
+        self.user = input("Ingrese nombre de usuario: ")
+        self.password = getpass("Ingrese password : ")
 
     def conectar(self):
         try:
@@ -27,6 +27,6 @@ class DataBase:
 
 
 
-db = DataBase("root", "Nokia2022")
+db = DataBase()
 db.conectar()
 
