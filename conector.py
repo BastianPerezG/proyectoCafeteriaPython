@@ -31,3 +31,15 @@ class DataBase:
         for row in cursor.fetchall():
             print(row)
 
+    def actualizar(self,sql):
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        self.connection.commit()
+        self.close()
+    
+    def eliminar(self,sql):
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        self.connection.commit()
+        self.close()
+

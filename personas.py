@@ -1,26 +1,20 @@
 from conector import DataBase
-from getpass import getpass
+
 #La class Personas contiene los elementos run, nombre, etc
 class Personas:
     # constructor 
-    def __init__(self, run, nombre, app):
+    def __init__(self, run, nombre, app,apm,tel, email,fnac):
 
         self.run = run
         self.nombre = nombre
         self.app = app
-    # metodo para leer las instancias persona
-    def ver_persona(self):
-        # define lo que se pretende retornar
-        txt="{0}, {1}, {2}"
-        # retorna text en el formato run, nombre, app y lo que quiera agregar
-        return txt.format(self.run, self.nombre, self.app)
+        self.apm = apm
+        self.tel = tel
+        self.email = email
+        self.fnac = fnac
+    
+    def insertar(self):
+        sql = f"INSERT INTO personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE ('{self.run}','{self.nombre}', '{self.app}','{self.apm}','{self.tel}','{self.email}',{self.fnac} )"
+        db = DataBase()
+        db.insert(sql)
 
-
-    def listar_todas_personas(self):
-        user = input("Ingrese nombre de usuario de la bd \n")
-        password = getpass("Ingrese la password del usuario \n")
-        db = DataBase(user,password)
-        db.conectar
-
-person = Personas("11.111.111-1", "Juan", "Pérez")
-person.listar_todas_personas()
