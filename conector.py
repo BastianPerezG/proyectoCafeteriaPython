@@ -4,29 +4,30 @@ from mysql.connector import connect, Error
 
 class DataBase:
 
-    def __init__(self, user, password):
-        self.user = input("Ingrese nombre de usuario: ")
-        self.password = getpass("Ingrese password : ")
+    def __init__(self):
 
-    def conectar(self):
-        try:
-            with connect(
-                host="localhost",
-                user=self.user,
-                password=self.password,
-                database="cafeteria_poo"
-            ) as connection:
-                with connection.cursor() as cursor:
-                    cursor.execute("INSERT INTO personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE (111111113, 'Jose', 'Carcamo', 'Mata','123456789', 'jose.carcamo@gmail.com', '1940-04-10' )")
-                    connection.commit()
-                print(connection)
-        except Error as e:
-            print(e)
-    def execute_query(self,query):
-        pass
+        connection = connect(
+            host = 'localhost',
+            user = "root",
+            password = "Nokia2022",
+            dabatabase = "cafeteria_poo",
+        )
+        self.connection = connection
 
+    def insert(self,sql):
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        self.connection.commit()
+        self.close()
 
+    def close(self):
+        self.connection.close()
+        print("La conexion fue cerrada")
 
-db = DataBase()
-db.conectar()
+    def select(self,sql):
+        cursor = self.connection.cursor()
+        sql = "SELECT * FROM personas;"
+        cursor.execute(sql)
+        for row in cursor.fetchall():
+            print(row)
 
