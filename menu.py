@@ -17,6 +17,7 @@ class Menu:
         3.- Para Ingresar a Menú Trabajadores
         4.- Para Ingresar a Menú Productos
         5.- Para Ingresar a Menú Usuarios
+        6.- Otros (Un ver historico de boletas y un ver de historico de ventas)
         0.- Salir
             ''')
         # luego de que el usuario ingrese una opcion llamamos la funcion limpiarpantalla()
