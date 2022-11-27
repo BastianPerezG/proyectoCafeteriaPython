@@ -27,10 +27,10 @@ class Menu:
             # Ingresando al submenu personas
             print('''
             ===== Menu personas =====
-            1.- Ingresar una Persona
-            2.- Listar Personas
+            1.- Nueva Persona
+            2.- Mostrar Personas registradas
             3.- Actualizar datos de una persona
-            4.- Eliminar persona
+            4.- Eliminar registro de una persona
             0.- Volver a menú principal
             ''')
             # primera opcion para ingresar una persona y limpiar pantalla

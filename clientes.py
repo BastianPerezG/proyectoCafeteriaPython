@@ -5,10 +5,10 @@ from personas import Personas
 class Clientes(Personas):
     # esta funcion agrega o redefine el constructor agregando
     # "puntos" como nuevo parametro    
-    def __init__(self, run, nombre, app, puntos, descto, cli_frecuente):
+    def __init__(self, run, nombre, app, apm, tel, email, fnac, puntos, descto, cli_frecuente):
         # super().__init__(toma en consideracion estos parametros originales)
         # del constructor en personas
-        super().__init__(run, nombre, app)
+        super().__init__(self, run, nombre, app, apm, tel, email, fnac)
         # define el self para puntos en este caso quedo igual
         self.puntos = puntos
         self.descto = descto

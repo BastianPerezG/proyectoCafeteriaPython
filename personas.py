@@ -3,7 +3,7 @@ from conector import DataBase
 #La class Personas contiene los elementos run, nombre, etc
 class Personas:
     # constructor 
-    def __init__(self, run, nombre, app,apm,tel, email,fnac):
+    def __init__(self, run, nombre, app, apm, tel, email, fnac):
 
         self.run = run
         self.nombre = nombre
