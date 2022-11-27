@@ -1,20 +1,24 @@
 # decidimos separar las clases por archivo
 # por eso usamos este metodo para importar lo que esta en personas.py
 from personas import Personas
+from conector import DataBase
 # nuestra clase Clientes heredando () lo que venga de Personas
 class Clientes(Personas):
     # esta funcion agrega o redefine el constructor agregando
     # "puntos" como nuevo parametro    
-    def __init__(self, run, nombre, app, apm, tel, email, fnac, puntos, descto, cli_frecuente):
+    def __init__(self, run, nombre, app, apm, tel, email, fnac, cod, puntos, descto, cli_frecuente):
         # super().__init__(toma en consideracion estos parametros originales)
         # del constructor en personas
         super().__init__(self, run, nombre, app, apm, tel, email, fnac)
         # define el self para puntos en este caso quedo igual
+        self.cod = cod
         self.puntos = puntos
         self.descto = descto
         self.cli_frecuente = cli_frecuente
-    def crearCliente(self):
-        pass
+    def insert_cli(self):
+        sql = f"INSERT INTO cafeteria.clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente, per_run) VALUE ({self.cod}, {self.puntos}, {self.descto}, {self.cli_frecuente}, {self.run})"
+        db = DataBase()
+        db.insert(sql)
 
     
         
