@@ -76,18 +76,16 @@ class Menu:
 
                 print("Ingresando cliente")
 
-                run = input("Ingrese el rut")
-                nombre = input("Ingrese el nombre")
-                app = input("Ingrese el apellido paterno")
-                apm = input("Ingrese el apellido materno")
-                tel = input("Ingrese el numero de telefono")
-                email = input("Ingrese el email de la persona")
-                fnac = input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD)")
-                # con esta variable definimos lo que enviaremos en insertar() hacia la clase Personas
-                persona = Personas(run, nombre, app, apm, tel, email, fnac)
-                # Una vez ingresados estos datos aplicamos el metodo "insertar()"
-                # que ya esta definido en el archivo personas.py como un metodo para insertar datos
-                persona.insertar()
+                cod = int(input("Ingrese el codigo de cliente asignado"))
+                puntos = int(input("Ingrese los puntos del cliente"))
+                descto = float(input("Ingrese el descuento de este cliente"))
+                cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()
+
+                if cli_frecuente == "Si":
+                    cli_frecuente = True
+                else:
+                    cli_frecuente = False
+
             if opcion2 == 2:
                 print("Listando clientes")
             if opcion2 == 3:
@@ -147,6 +145,8 @@ class Menu:
             4.- Eliminar un usuario
             0.- Salir de este submenu
             ''')
+        else:
+            print("se supone que aqui estamos saliendo")
 
         
 
