@@ -1,5 +1,6 @@
 # importando de personas
 from personas import Personas
+from clientes import Clientes
 import os
 # funcion para limpiar pantalla ya incorporada en python
 def limpiarpantalla():
@@ -58,7 +59,7 @@ class Menu:
                 print("Eliminando persona")
             else:
                 print("No se reconoce la opción, vuelva a intentar")
-            Menu.__init__()
+                Menu.__init__()
 
         elif opcion == 2:
             # mostramos el submenu CLIENTES
@@ -71,26 +72,31 @@ class Menu:
             0.- Volver a menú principal
             ''')
             opcion2 = int(input("Ingrese una opción"))
-
             if opcion2 == 1:
-
-                print("Ingresando cliente")
-
+                
+                input("Ingresando un nuevo cliente, PRESIONE ENTER!")
+                
                 cod = int(input("Ingrese el codigo de cliente asignado"))
                 puntos = int(input("Ingrese los puntos del cliente"))
                 descto = float(input("Ingrese el descuento de este cliente"))
-                cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()
+                # cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()
+                cli_frecuente = True
+                run = input("Ingrese el run del cliente: \n")
 
-                if cli_frecuente == "Si":
-                    cli_frecuente = True
-                else:
-                    cli_frecuente = False
-
+                #if cli_frecuente == "Si":
+                    # cli_frecuente = True
+                #else:
+                    # cli_frecuente = False
+                # variable para definir lo que esta ingresando a clientes
+                cliente = Clientes(cod, puntos, descto, cli_frecuente, run)
+                # Ahora usamos lo que ingreso a cliente con el metodo insert
+                cliente.insert_cli()
+                
             if opcion2 == 2:
                 print("Listando clientes")
-            if opcion2 == 3:
+            elif opcion2 == 3:
                 print("ACtualizando datos de cliente")
-            if opcion2 == 4:
+            elif opcion2 == 4:
                 print("Eliminando un cliente")
             else:
                 print("cingresaste cero o una letra o algo asi")
@@ -146,8 +152,8 @@ class Menu:
             0.- Salir de este submenu
             ''')
         else:
-            print("se supone que aqui estamos saliendo")
-
+            input("======Saliendo... presione una tecla!======")
+            limpiarpantalla()
+            Menu.__init__()
         
-
 Menu.__init__()

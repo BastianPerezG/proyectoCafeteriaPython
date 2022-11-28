@@ -9,8 +9,8 @@ class DataBase:
         connection = connect(
             host = 'localhost',
             user = "root",
-            password = "Nokia2022",
-            dabatabase = "cafeteria_poo",
+            password = input("ingrese clave: \n"),
+            dabatabase = "cafeteria"
         )
         self.connection = connection
 
@@ -31,13 +31,13 @@ class DataBase:
         for row in cursor.fetchall():
             print(row)
 
-    def actualizar(self,sql):
+    def update(self,sql):
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()
         self.close()
     
-    def eliminar(self,sql):
+    def delete(self,sql):
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()
