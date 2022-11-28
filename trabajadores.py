@@ -2,9 +2,9 @@ from personas import Personas
 from conector import DataBase
 class Trabajador(Personas):
 
-    def __init__(self, run, nombre, app, apm, tel, email, fnac, turno, inicio_actividades):
+    def __init__(self, run, turno, inicio_actividades):
 
-        super.__init__(run, nombre, app, apm, tel, email, fnac)
+        super.__init__(run)
         self.turno = turno
         self.inicio_actividades = inicio_actividades
 

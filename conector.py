@@ -15,11 +15,13 @@ class DataBase:
         self.connection = connection
 
     def insert(self,sql):
-        cursor = self.connection.cursor()
-        cursor.execute(sql)
-        self.connection.commit()
-        self.close()
-
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.close()
+        except Error as e:
+            print(e)
     def close(self):
         self.connection.close()
         print("La conexion fue cerrada")
