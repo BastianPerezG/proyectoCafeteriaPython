@@ -28,10 +28,9 @@ class DataBase:
         self.connection.close()
         print("La conexion fue cerrada")
 
-    def select(self,sql):
+    def select(self, tabla):
         cursor = self.connection.cursor()
-        sql = "SELECT * FROM personas;"
-        cursor.execute(sql)
+        cursor.execute(f"SELECT * FROM {tabla};")
         for row in cursor.fetchall():
             print(row)
 

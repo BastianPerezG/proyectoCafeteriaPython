@@ -15,7 +15,7 @@ class Clientes:
         self.cod = cod
         self.puntos = puntos
         self.descto = descto
-        self.cli_frecuente = True
+        self.cli_frecuente = cli_frecuente
         self.run = run
 
     def insert_cli(self):
@@ -23,6 +23,18 @@ class Clientes:
         db = DataBase()
         db.insert(sql)
 
+    def mostrar_cli(self):
+        tabla = 'clientes' 
+        db = DataBase()
+        db.select(self, tabla)
+
+    def actualizar_cli(self):
+        pass
+
+    def eliminar_cli(cod):
+        sql = 'DELETE FROM clientes WHERE cli_cod = {cod};'
+        db = DataBase()
+        db.delete(sql)
     
         
 

@@ -52,11 +52,14 @@ class Menu:
                 # que ya esta definido en el archivo personas.py como un metodo para insertar datos
                 persona.insertar()
             elif opcion1 == 2:
-                print("Listando personas")                
+                print("Listando personas")
+                Personas.mostrar()              
             elif opcion1 == 3:
                 print("Actualizando datos")
             elif opcion1 == 4:
                 print("Eliminando persona")
+                run = int(input("Ingrese el rut de quien desea eliminar"))                
+                Personas.eliminar(run)
             else:
                 print("No se reconoce la opción, vuelva a intentar")
                 Menu.__init__()

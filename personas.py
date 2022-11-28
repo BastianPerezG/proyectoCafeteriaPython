@@ -18,3 +18,18 @@ class Personas:
         db = DataBase()
         db.insert(sql)
 
+    def mostrar(self):
+        tabla = 'personas' 
+        db = DataBase()
+        db.select(self, tabla)
+    
+    def actualizar(self):
+        pass
+
+    def eliminar(run):
+        sql = 'DELETE FROM personas WHERE per_run = {run};'
+        db = DataBase()
+        db.delete(sql)
+        
+        
+
