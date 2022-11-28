@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: cafeteria
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `boletas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `boletas` (
-  `bol_cod` int NOT NULL,
+  `bol_cod` int(11) NOT NULL AUTO_INCREMENT,
   `bol_iva` decimal(9,2) NOT NULL,
-  `bol_total` int NOT NULL,
-  `ven_cod` int NOT NULL,
+  `bol_total` int(11) NOT NULL,
+  `ven_cod` int(11) NOT NULL,
   PRIMARY KEY (`bol_cod`),
   KEY `fk_Boletas_Ventas1_idx` (`ven_cod`),
   CONSTRAINT `fk_Boletas_Ventas1` FOREIGN KEY (`ven_cod`) REFERENCES `ventas` (`ven_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,15 +51,15 @@ DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clientes` (
-  `cli_cod` int NOT NULL,
-  `cli_puntos` int DEFAULT NULL,
+  `cli_cod` int(11) NOT NULL AUTO_INCREMENT,
+  `cli_puntos` int(11) DEFAULT NULL,
   `cli_descto` decimal(9,2) DEFAULT NULL,
-  `cli_frecuente` tinyint DEFAULT NULL,
-  `per_run` int unsigned NOT NULL,
-  PRIMARY KEY (`cli_cod`,`per_run`),
-  KEY `fk_Clientes_Personas1_idx` (`per_run`),
-  CONSTRAINT `fk_Clientes_Personas1` FOREIGN KEY (`per_run`) REFERENCES `personas` (`per_run`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `cli_frecuente` tinyint(4) DEFAULT NULL,
+  `per_run` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`cli_cod`),
+  KEY `fk_clientes_personas1_idx` (`per_run`),
+  CONSTRAINT `fk_clientes_personas1` FOREIGN KEY (`per_run`) REFERENCES `personas` (`per_run`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,17 +80,17 @@ DROP TABLE IF EXISTS `comandas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comandas` (
-  `com_cod` int NOT NULL,
-  `com_cant` int NOT NULL,
+  `com_cod` int(11) NOT NULL AUTO_INCREMENT,
+  `com_cant` int(11) NOT NULL,
   `com_hora` datetime NOT NULL,
-  `pro_cod` int NOT NULL,
-  `ven_cod` int NOT NULL,
+  `pro_cod` int(11) NOT NULL,
+  `ven_cod` int(11) NOT NULL,
   PRIMARY KEY (`com_cod`,`pro_cod`,`ven_cod`),
   KEY `fk_Comandas_Productos1_idx` (`pro_cod`),
   KEY `fk_Comandas_Ventas1_idx` (`ven_cod`),
   CONSTRAINT `fk_Comandas_Productos1` FOREIGN KEY (`pro_cod`) REFERENCES `productos` (`pro_cod`),
   CONSTRAINT `fk_Comandas_Ventas1` FOREIGN KEY (`ven_cod`) REFERENCES `ventas` (`ven_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,11 +111,11 @@ DROP TABLE IF EXISTS `perfiles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `perfiles` (
-  `perf_cod` int NOT NULL,
+  `perf_cod` int(11) NOT NULL AUTO_INCREMENT,
   `perf_nom` varchar(45) NOT NULL,
   `perf_desc` varchar(45) NOT NULL,
   PRIMARY KEY (`perf_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ DROP TABLE IF EXISTS `personas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personas` (
-  `per_run` int unsigned NOT NULL,
+  `per_run` int(10) unsigned NOT NULL,
   `per_nombre` varchar(30) NOT NULL,
   `per_app` varchar(30) NOT NULL,
   `per_apm` varchar(30) DEFAULT NULL,
@@ -144,7 +144,7 @@ CREATE TABLE `personas` (
   `per_email` varchar(45) DEFAULT NULL,
   `per_fnac` date DEFAULT NULL,
   PRIMARY KEY (`per_run`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,13 +165,13 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `pro_cod` int NOT NULL,
+  `pro_cod` int(11) NOT NULL AUTO_INCREMENT,
   `pro_nombre` varchar(45) NOT NULL,
   `pro_descripcion` varchar(45) NOT NULL,
-  `pro_stock` int NOT NULL,
-  `pro_precio` int NOT NULL,
+  `pro_stock` int(11) NOT NULL,
+  `pro_precio` int(11) NOT NULL,
   PRIMARY KEY (`pro_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,19 +192,19 @@ DROP TABLE IF EXISTS `trabajadores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `trabajadores` (
-  `tra_cod` int NOT NULL,
+  `tra_cod` int(11) NOT NULL AUTO_INCREMENT,
   `tra_inicio_turno` datetime NOT NULL,
   `tra_termino_turno` datetime NOT NULL,
   `tra_fcontr` varchar(45) NOT NULL,
   `tra_contrato` varchar(1000) DEFAULT NULL,
-  `perf_cod` int NOT NULL,
-  `per_run` int unsigned NOT NULL,
+  `perf_cod` int(11) NOT NULL,
+  `per_run` int(10) unsigned NOT NULL,
   PRIMARY KEY (`tra_cod`,`perf_cod`,`per_run`),
   KEY `fk_Trabajadores_Perfiles1_idx` (`perf_cod`),
   KEY `fk_Trabajadores_Personas1_idx` (`per_run`),
   CONSTRAINT `fk_Trabajadores_Perfiles1` FOREIGN KEY (`perf_cod`) REFERENCES `perfiles` (`perf_cod`),
   CONSTRAINT `fk_Trabajadores_Personas1` FOREIGN KEY (`per_run`) REFERENCES `personas` (`per_run`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,17 +225,17 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `usu_cod` int NOT NULL,
+  `usu_cod` int(11) NOT NULL AUTO_INCREMENT,
   `usu_nom` varchar(45) NOT NULL,
   `usu_pass` varchar(45) NOT NULL,
-  `tra_cod` int DEFAULT NULL,
-  `cli_cod` int DEFAULT NULL,
+  `tra_cod` int(11) DEFAULT NULL,
+  `cli_cod` int(11) DEFAULT NULL,
   PRIMARY KEY (`usu_cod`),
   KEY `fk_Usuarios_Trabajadores1_idx` (`tra_cod`),
   KEY `fk_Usuarios_Clientes1_idx` (`cli_cod`),
   CONSTRAINT `fk_Usuarios_Clientes1` FOREIGN KEY (`cli_cod`) REFERENCES `clientes` (`cli_cod`),
   CONSTRAINT `fk_Usuarios_Trabajadores1` FOREIGN KEY (`tra_cod`) REFERENCES `trabajadores` (`tra_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,18 +256,18 @@ DROP TABLE IF EXISTS `ventas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ventas` (
-  `ven_cod` int NOT NULL,
+  `ven_cod` int(11) NOT NULL AUTO_INCREMENT,
   `ven_descrip` varchar(45) NOT NULL,
   `ven_fecha` varchar(45) NOT NULL,
   `ven_subtotal` varchar(45) NOT NULL,
-  `cli_cod` int DEFAULT NULL,
-  `usu_cod` int DEFAULT NULL,
+  `cli_cod` int(11) DEFAULT NULL,
+  `usu_cod` int(11) DEFAULT NULL,
   PRIMARY KEY (`ven_cod`),
   KEY `fk_Ventas_Clientes1_idx` (`cli_cod`),
   KEY `fk_Ventas_Usuarios1_idx` (`usu_cod`),
   CONSTRAINT `fk_Ventas_Clientes1` FOREIGN KEY (`cli_cod`) REFERENCES `clientes` (`cli_cod`),
   CONSTRAINT `fk_Ventas_Usuarios1` FOREIGN KEY (`usu_cod`) REFERENCES `usuarios` (`usu_cod`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-27  3:34:36
+-- Dump completed on 2022-11-27 23:59:53

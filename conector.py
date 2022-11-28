@@ -9,7 +9,7 @@ class DataBase:
         connection = connect(
             host = 'localhost',
             user = "root",
-            password = input("ingrese clave: \n"),
+            password = "Nokia2022",
             dabatabase = "cafeteria"
         )
         self.connection = connection

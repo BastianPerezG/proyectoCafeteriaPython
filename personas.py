@@ -14,7 +14,7 @@ class Personas:
         self.fnac = fnac
     
     def insertar(self):
-        sql = f"INSERT INTO personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE ('{self.run}','{self.nombre}', '{self.app}','{self.apm}','{self.tel}','{self.email}',{self.fnac} )"
+        sql = f"INSERT INTO cafeteria.personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE ('{self.run}','{self.nombre}', '{self.app}','{self.apm}','{self.tel}','{self.email}',{self.fnac} )"
         db = DataBase()
         db.insert(sql)
 
