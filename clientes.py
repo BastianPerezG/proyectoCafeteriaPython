@@ -18,7 +18,7 @@ class Clientes(Personas):
     def insert_cli(self):
         sql = f"INSERT INTO cafeteria.clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente, per_run) VALUE ({self.cod}, {self.puntos}, {self.descto}, {self.cli_frecuente}, {self.run})"
         db = DataBase()
-        db.insert(sql)
+        db.insert_cli(sql)
 
     
         
