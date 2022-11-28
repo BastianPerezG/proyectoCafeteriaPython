@@ -5,14 +5,16 @@ from mysql.connector import connect, Error
 class DataBase:
 
     def __init__(self):
-
-        connection = connect(
-            host = 'localhost',
-            user = "root",
-            password = "Nokia2022",
-            dabatabase = "cafeteria"
-        )
-        self.connection = connection
+        try:
+            aux = connect(
+                host ='localhost',
+                user ='root',
+                password = getpass("Ingrese la pass"),
+                dabatabase ='cafeteria'
+            )
+            self.connection = aux
+        except Error as e:
+            print("Error" + e)
 
     def insert(self,sql):
         try:
@@ -45,3 +47,4 @@ class DataBase:
         self.connection.commit()
         self.close()
 
+db = DataBase()

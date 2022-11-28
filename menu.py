@@ -7,7 +7,7 @@ def limpiarpantalla():
     os.system('cls')
 # clase menu 
 class Menu:
-    # constructor __init__
+    # constructor __init__1
     def __init__():
         # menu de opciones (Menu principal de personas)
         print('''           
@@ -39,13 +39,13 @@ class Menu:
             limpiarpantalla()
             if opcion1 == 1:
                 # cargamos cada uno de los atributos en estas variables
-                run = input("Ingrese el rut")
+                run = int(input("Ingrese el rut"))
                 nombre = input("Ingrese el nombre")
                 app = input("Ingrese el apellido paterno")
                 apm = input("Ingrese el apellido materno")
                 tel = input("Ingrese el numero de telefono")
                 email = input("Ingrese el email de la persona")
-                fnac = input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD)")
+                fnac = int(input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD)"))
                 # con esta variable definimos lo que enviaremos en insertar() hacia la clase Personas
                 persona = Personas(run, nombre, app, apm, tel, email, fnac)
                 # Una vez ingresados estos datos aplicamos el metodo "insertar()"
