@@ -9,10 +9,11 @@ class DataBase:
             aux = connect(
                 host ='localhost',
                 user ='root',
-                password = getpass("Ingrese la pass"),
-                dabatabase ='cafeteria'
+                password = 'Nokia2022',
+                database ='cafeteria'
             )
             self.connection = aux
+            print(aux)
         except Error as e:
             print("Error" + e)
 
