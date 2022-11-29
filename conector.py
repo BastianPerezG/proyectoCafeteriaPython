@@ -13,6 +13,7 @@ class DataBase:
                 database ='cafeteria'
             )
             self.connection = aux
+            print(aux)
         except Error as e:
             print("Error" + e)
 

@@ -45,7 +45,7 @@ class Menu:
                 apm = input("Ingrese el apellido materno")
                 tel = input("Ingrese el numero de telefono")
                 email = input("Ingrese el email de la persona")
-                fnac = int(input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD)"))
+                fnac = 1(input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD)"))
                 # con esta variable definimos lo que enviaremos en insertar() hacia la clase Personas
                 persona = Personas(run, nombre, app, apm, tel, email, fnac)
                 # Una vez ingresados estos datos aplicamos el metodo "insertar()"
@@ -82,15 +82,15 @@ class Menu:
                 cod = int(input("Ingrese el codigo de cliente asignado"))
                 puntos = int(input("Ingrese los puntos del cliente"))
                 descto = float(input("Ingrese el descuento de este cliente"))
-                # cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()
-                cli_frecuente = True
+                cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()
+                #cli_frecuente = True
                 run = input("Ingrese el run del cliente: \n")
 
-                #if cli_frecuente == "Si":
-                    # cli_frecuente = True
-                #else:
-                    # cli_frecuente = False
-                # variable para definir lo que esta ingresando a clientes
+                if cli_frecuente == "Si":
+                    cli_frecuente = True
+                else:
+                    cli_frecuente = False
+                #variable para definir lo que esta ingresando a clientes
                 cliente = Clientes(cod, puntos, descto, cli_frecuente, run)
                 # Ahora usamos lo que ingreso a cliente con el metodo insert
                 cliente.insert_cli()
