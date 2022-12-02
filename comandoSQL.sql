@@ -1,8 +1,8 @@
 INSERT INTO cafeteria.personas (per_run, per_nombre, per_app, per_apm, per_tel, per_email, per_fnac) VALUE (666666666, 'Rodrigo', 'Aguirre', 'Pizarro','876322456', 'rodrigo.aguirre@gmail.com', '1995-05-12' );
 
-
+/*INSERT CLIENTE CON RUT*/
 INSERT INTO cafeteria.clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente, per_run) VALUE (4, 0, 0, FALSE, 666666666);
-
+/*INSERT CLIENTE SIN RUT*/
 INSERT INTO cafeteria.clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente) VALUE (4, 0, 0, FALSE);
 
 
