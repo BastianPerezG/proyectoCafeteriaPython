@@ -15,13 +15,13 @@ class Productos:
     def mostrar_pro(self):
         tabla = 'productos' 
         db = DataBase()
-        db.select(self, tabla)
+        db.select(tabla)
 
-    def mostrar_pro_uq(self, id):
+    def mostrar_pro_uq(id):
         tabla = 'productos'
         columna = 'pro_cod' 
         db = DataBase()
-        db.select(self, tabla, id)
+        db.select(tabla, id)
 
     def actualizar_pro(self):
         pass

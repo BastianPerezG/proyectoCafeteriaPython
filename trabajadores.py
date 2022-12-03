@@ -21,13 +21,13 @@ class Trabajador(Personas):
     def mostrar_tra(self):
         tabla = 'trabajadores' 
         db = DataBase()
-        db.select(self, tabla)
+        db.select(tabla)
 
-    def mostrar_tra_uq(self, id):
+    def mostrar_tra_uq(id):
         tabla = 'trabajadores'
         columna = 'tra_cod' 
         db = DataBase()
-        db.select(self, tabla, id)
+        db.select(tabla, id)
     
     def actualizar_tra(self):
         pass

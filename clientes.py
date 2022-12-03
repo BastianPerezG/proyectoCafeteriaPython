@@ -26,13 +26,13 @@ class Clientes:
     def mostrar_cli(self):
         tabla = 'clientes' 
         db = DataBase()
-        db.select(self, tabla)
+        db.select(tabla)
 
-    def mostrar_cli_uq(self, id):
+    def mostrar_cli_uq(id):
         tabla = 'clientes'
         columna = 'cli_cod' 
         db = DataBase()
-        db.select(self, tabla, id)
+        db.select(tabla, id)
 
     def actualizar_cli(self):
         pass

@@ -22,13 +22,13 @@ class Usuario:
     def mostrar_usu(self):
         tabla = 'usuarios' 
         db = DataBase()
-        db.select(self, tabla)
+        db.select(tabla)
 
-    def mostrar_usu_uq(self, id):
+    def mostrar_usu_uq(id):
         tabla = 'usuarios'
         columna = 'usu_cod' 
         db = DataBase()
-        db.select(self, tabla, id)
+        db.select(tabla, id)
 
     def actualizar_usu(self):
         pass
