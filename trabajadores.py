@@ -18,8 +18,15 @@ class Trabajador:
     
     def mostrar_tra():
         tabla = 'trabajadores' 
+        col1 = "id"
+        col2 = "Inicio Turno"
+        col3 = "Termino Turno"
+        col4 = "Fecha de Contratación"
+        col5 = "Contrato"
+        col6 = "Perfil"
+        col7 = "Run"
         db = DataBase()
-        db.select(tabla)
+        db.select(tabla,col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_tra_uq(id):
         tabla = 'trabajadores'

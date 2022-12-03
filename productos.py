@@ -14,8 +14,15 @@ class Productos:
 
     def mostrar_pro():
         tabla = 'productos' 
+        col1 = "id"
+        col2 = "Nombre"
+        col3 = "Descipcion"
+        col4 = "Stock"
+        col5 = "Precio"
+        col6 = " "
+        col7 = " "
         db = DataBase()
-        db.select(tabla)
+        db.select(tabla,col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_pro_uq(id):
         tabla = 'productos'
