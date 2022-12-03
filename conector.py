@@ -35,6 +35,12 @@ class DataBase:
         for row in cursor.fetchall():
             print(row)
 
+    def select_one(self, tabla,columna, id):
+        cursor = self.connection.cursor()
+        cursor.execute(f"SELECT * FROM {tabla} WHERE {columna} = {id} ;")
+        cursor.fetchone()
+        print(cursor)
+
     def update(self,sql):
         cursor = self.connection.cursor()
         cursor.execute(sql)
