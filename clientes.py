@@ -32,7 +32,7 @@ class Clientes:
         tabla = 'clientes'
         columna = 'cli_cod' 
         db = DataBase()
-        db.select(tabla,columna, id)
+        db.select_one(tabla,columna, id)
 
     def actualizar_cli(self):
         pass

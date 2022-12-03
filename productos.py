@@ -21,7 +21,7 @@ class Productos:
         tabla = 'productos'
         columna = 'pro_cod' 
         db = DataBase()
-        db.select(tabla,columna, id)
+        db.select_one(tabla,columna, id)
 
     def actualizar_pro(self):
         pass
