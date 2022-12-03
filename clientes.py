@@ -19,7 +19,7 @@ class Clientes:
         self.run = run
 
     def insert_cli(self):
-        sql = f"INSERT INTO cafeteria.clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente, per_run) VALUE ({self.cod}, {self.puntos}, {self.descto}, {self.cli_frecuente}, {self.run})"
+        sql = f"INSERT INTO clientes (cli_cod, cli_puntos, cli_descto, cli_frecuente) VALUE ({self.cod}, {self.puntos}, {self.descto}, {self.cli_frecuente});"
         db = DataBase()
         db.insert(sql)
 
@@ -27,6 +27,12 @@ class Clientes:
         tabla = 'clientes' 
         db = DataBase()
         db.select(self, tabla)
+
+    def mostrar_cli_uq(self, id):
+        tabla = 'clientes'
+        columna = 'cli_cod' 
+        db = DataBase()
+        db.select(self, tabla, id)
 
     def actualizar_cli(self):
         pass
@@ -36,13 +42,3 @@ class Clientes:
         db = DataBase()
         db.delete(sql)
     
-        
-
-      
-# de que otras formas vamos agregando esta informacion? inputs? como definir cuando es entero y no string???
-#clienteA = Clientes("22.222.222-2", "Gabriel", "Manzano", 3500)
-#print(clienteA.ver_persona())
-# recordar que este puntos que estamos llamando, es el que defini en el ultimo self.
-#print(clienteA.puntos)
-
-# otras preguntas: para agregar parametros se hace 1 def para cada parametro adicional? como funciona eso?
