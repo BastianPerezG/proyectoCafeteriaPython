@@ -62,6 +62,7 @@ class Menu:
 
             elif opcion1 == 3: # Ingresar un usuario
                 print("Un usuario")
+
             elif opcion1 == 4: # Ingresar un producto
                 print("Un producto")
             else:
@@ -165,6 +166,7 @@ class Menu:
             4.- De productos?
             0.- Volver al menu principal?
             ''')
+            
             opcion3 = int(input("Ingrese una opcion: \n")) # que actualizar?
             limpiarpantalla()
             if opcion3 == 1:
