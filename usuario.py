@@ -19,7 +19,7 @@ class Usuario:
         db = DataBase()
         db.insert(sql)
 
-    def mostrar_usu(self):
+    def mostrar_usu():
         tabla = 'usuarios' 
         db = DataBase()
         db.select(tabla)

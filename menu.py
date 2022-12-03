@@ -174,4 +174,5 @@ class Menu:
                 print("Eliminando un producto")
             else:
                 Menu.__init__()
-# Menu.__init__()   
+
+Menu.__init__()

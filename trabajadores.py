@@ -18,7 +18,7 @@ class Trabajador(Personas):
         db = DataBase()
         db.insert(sql)
     
-    def mostrar_tra(self):
+    def mostrar_tra():
         tabla = 'trabajadores' 
         db = DataBase()
         db.select(tabla)

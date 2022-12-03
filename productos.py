@@ -12,7 +12,7 @@ class Productos:
         db = DataBase()
         db.insert(sql)
 
-    def mostrar_pro(self):
+    def mostrar_pro():
         tabla = 'productos' 
         db = DataBase()
         db.select(tabla)

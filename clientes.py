@@ -23,7 +23,7 @@ class Clientes:
         db = DataBase()
         db.insert(sql)
 
-    def mostrar_cli(self):
+    def mostrar_cli():
         tabla = 'clientes' 
         db = DataBase()
         db.select(tabla)
