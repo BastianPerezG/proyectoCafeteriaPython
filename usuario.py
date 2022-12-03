@@ -28,7 +28,7 @@ class Usuario:
         tabla = 'usuarios'
         columna = 'usu_cod' 
         db = DataBase()
-        db.select(tabla, id)
+        db.select(tabla,columna, id)
 
     def actualizar_usu(self):
         pass

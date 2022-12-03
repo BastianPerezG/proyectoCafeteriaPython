@@ -38,8 +38,8 @@ class DataBase:
     def select_one(self, tabla,columna, id):
         cursor = self.connection.cursor()
         cursor.execute(f"SELECT * FROM {tabla} WHERE {columna} = {id} ;")
-        cursor.fetchone()
-        print(cursor)
+        seleccion=cursor.fetchone()
+        print(seleccion)
 
     def update(self,sql):
         cursor = self.connection.cursor()

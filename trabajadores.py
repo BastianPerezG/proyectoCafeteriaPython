@@ -27,7 +27,7 @@ class Trabajador(Personas):
         tabla = 'trabajadores'
         columna = 'tra_cod' 
         db = DataBase()
-        db.select(tabla, id)
+        db.select(tabla,columna, id)
     
     def actualizar_tra(self):
         pass
