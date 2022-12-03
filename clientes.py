@@ -25,8 +25,15 @@ class Clientes:
 
     def mostrar_cli():
         tabla = 'clientes' 
+        col1 = "id"
+        col2 = "Puntos"
+        col3 = "Descuento"
+        col4 = "Cli_Frecuente"
+        col5 = "Run"
+        col6 = " "
+        col7 = " "
         db = DataBase()
-        db.select(tabla)
+        db.select(tabla,col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_cli_uq(id):
         tabla = 'clientes'
