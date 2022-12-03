@@ -1,6 +1,8 @@
 from personas import Personas
 from clientes import Clientes
+from productos import Productos
 from trabajadores import Trabajador
+from usuario import Usuario
 import os
 def limpiarpantalla():
     os.system('cls')
@@ -33,7 +35,7 @@ class Menu:
                 puntos = int(input("Ingrese los puntos del cliente"))
                 descto = float(input("Ingrese el descuento de este cliente"))
                 cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()               
-                run = input("Ingrese el run del cliente: \n")
+                
                 if cli_frecuente == "Si":
                     cli_frecuente = True
                 else:
@@ -113,8 +115,12 @@ class Menu:
                 opProd = int(input("Especifique: \n"))
                 if opProd == 1:
                     print("Mostrar un producto especifico")
+                    id = int(input("Ingrese el id del producto: \n"))             
+                    Productos.mostrar_pro_uq(id)
                 elif opProd == 2:
                     print("Mostrar todos los productos")
+                    Productos.mostrar_pro()
+                
             elif opcion2 == 4:
                 print('''
                 =====Especifique====
@@ -122,6 +128,14 @@ class Menu:
                 2.- Todos los usuarios registrados?
                 0.- Otro numero para salir al menu principal
                 ''')
+                opUsu = int(input("Especifique: \n"))
+                if opUsu == 1:
+                    print("Mostrar un usuario en especifico")
+                    id = int(input("Ingrese el id del usuario: \n"))             
+                    Usuario.mostrar_usu(id)
+                elif opUsu == 2:
+                    print("Mostrar todos los usuarios")
+                    Usuario.mostrar_usu()
             else:
                 Menu.__init__()
 

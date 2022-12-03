@@ -1,11 +1,11 @@
 from conector import DataBase
 class Usuario:
 
-    def __init__(self, nombre,password, tra_cod,cli_cod):
+    def __init__(self, nombre ,password, cli_cod):
         self.nombre = nombre
         self.password = password
         self.cli_cod = cli_cod
-        self.tra_cod = tra_cod
+        
 
 
 
