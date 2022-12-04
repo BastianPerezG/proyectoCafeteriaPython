@@ -44,8 +44,8 @@ class Clientes:
     def actualizar_cli(self):
         pass
 
-    def eliminar_cli(cod):
-        sql = 'DELETE FROM clientes WHERE cli_cod = {cod};'
+    def eliminar_cli(id):
+        sql = 'DELETE FROM clientes WHERE cli_cod = {id};'
         db = DataBase()
         db.delete(sql)
     

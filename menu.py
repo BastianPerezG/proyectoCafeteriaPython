@@ -225,5 +225,7 @@ class Menu:
 
             else:
                 Menu.__init__()
+        elif opcion == 5:
+            pass
 
 Menu.__init__()
