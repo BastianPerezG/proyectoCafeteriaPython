@@ -22,8 +22,10 @@ class Menu:
         4.- Eliminar un dato
         5.- Ingresar al menu ventas
         ''')
+
         opcion = int(input("Ingrese una opción: \n"))
         limpiarpantalla()
+        
         if  opcion == 1:# Ingresar algo  ***********************************  **********************************     
             print('''
             =========Que desea ingresar?===========
