@@ -65,6 +65,10 @@ class Menu:
 
             elif opcion1 == 4: # Ingresar un producto
                 print("Un producto")
+                # {self.nombre}','{self.descripcion}', {self.stock},{self.precio}
+                nombre = input("Ingrese el nombre del producto: \n--->")
+                descripcion = input("Agregue una descripcion para este producto: \n--->")
+                stock = int(input(""))
             else:
                 Menu.__init__()              
 
@@ -77,7 +81,7 @@ class Menu:
             4.- De productos?
             0.- Otro numero para volver al menu principal
             ''')
-            opcion2 = int(input("Ingrese una opcion: \n"))# de que?
+            opcion2 = int(input("Ingrese una opcion: \n--->"))# de que?
             limpiarpantalla()
 
             if opcion2 == 1: # Mostrar un cliente
@@ -166,9 +170,10 @@ class Menu:
             4.- De productos?
             0.- Volver al menu principal?
             ''')
-            
+
             opcion3 = int(input("Ingrese una opcion: \n")) # que actualizar?
             limpiarpantalla()
+
             if opcion3 == 1:
                 pass
             elif opcion3 == 2:
