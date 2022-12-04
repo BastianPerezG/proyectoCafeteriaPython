@@ -27,8 +27,15 @@ class Productos:
     def mostrar_pro_uq(id):
         tabla = 'productos'
         columna = 'pro_cod' 
+        col1 = "id"
+        col2 = "Nombre"
+        col3 = "Descipcion"
+        col4 = "Stock"
+        col5 = "Precio"
+        col6 = " "
+        col7 = " "
         db = DataBase()
-        db.select_one(tabla ,columna, id)
+        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
 
     def actualizar_pro(id,nombre,descripcion,stock,precio):
         sql = f"UPDATE productos SET pro_nombre = '{nombre}', pro_descripcion = '{descripcion}', pro_stock = {stock}, pro_precio = {precio} WHERE pro_cod = {id};"

@@ -3,6 +3,9 @@ from clientes import Clientes
 from productos import Productos
 from trabajadores import Trabajador
 from usuario import Usuario
+from ventas import Ventas
+from comandas import Comandas
+from boletas import Boletas
 import time 
 import datetime
 import os
@@ -360,7 +363,73 @@ class Menu:
                 limpiarpantalla()
                 Menu.__init__()
         elif opcion == 5:
-            pass
+            print(''' Menú de ventas
+            
+            1.- Trabajador
+            2.- Cliente
+            3.- Usuario
+            4.- Volver al Menú Principal''')
+
+            opcion5 = int(input("Ingrese una opción"))
+            
+            if opcion5 == 1:
+                pass
+            elif opcion5 == 2:
+                pass
+            elif opcion5 == 3:
+                
+                
+                print(''' Qué desea hacer 
+                1.- Comprar
+                2.- Ver historial de compras''')
+
+                elegir = int(input("elija una opción"))
+
+                if elegir == 1:
+                    usu_cod = int(input("Ingrese su código de usuario"))
+                    Productos.mostrar_pro()
+                    
+                    while True:
+                        subtotal = 0
+                        descrip= ""
+                        pro_cod = int(input("Ingrese el código del producto que desea comprar"))
+                        cantidad = int(input("Ingrese la cantidad del producto que desea comprar"))
+                        subtotal = subtotal + (cantidad * int(input("Ingrese el valor del producto"))) 
+                        descrip =  descrip + str(f" {cantidad} de {pro_cod}. ")
+                        fecha = 'sysdate'
+                        hora = 'sysdate'
+                        salir = input("Desea algo más? Sí o No").capitalize()
+                        print(descrip)
+                        if salir == "Si":
+                            True
+                        else: 
+                            iva = subtotal * 0.19
+                            total = subtotal + iva
+                            venta = Ventas(descrip, fecha, subtotal, usu_cod)
+                            venta.insert_ven_usu()
+                            
+                            input("Generando pedido, aprete una tecla para continuar")
+                            ven_cod = int(input("Ingrese el codigo de venta"))
+                            comanda = Comandas(cantidad,hora,pro_cod,ven_cod)
+                            comanda.insert_com()
+
+                            input("Generando boleta, aprete una tecla para continuar")
+                            boleta = Boletas(iva, total,ven_cod)
+                            boleta.insert_bol()
+                            print("Gracias por su compra, vuelva pronto")
+                            Menu.__init__()
+
+                            False
+                elif elegir == 2:
+                    id = int(input("Ingrese su usuario"))
+                    Boletas.mostrar_bol_uq(id)
+
+                else:
+                    Menu.__init__()
+                
+            else:
+                limpiarpantalla()
+                Menu.__init__()
 
 limpiarpantalla()
 Menu.__init__()

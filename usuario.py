@@ -34,8 +34,15 @@ class Usuario:
     def mostrar_usu_uq(id):
         tabla = 'usuarios'
         columna = 'usu_cod' 
+        col1 = "id"
+        col2 = "Nombre"
+        col3 = "Password"
+        col4 = "Tra_Cod"
+        col5 = "Cli_Cod"
+        col6 = " "
+        col7 = " "
         db = DataBase()
-        db.select_one(tabla,columna, id)
+        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
 
     def actualizar_usu(id, nombre, password):
         sql = f"UPDATE usuarios SET usu_nom = '{nombre}', usu_pass = '{password}' WHERE usu_cod = {id};"
