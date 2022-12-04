@@ -3,7 +3,7 @@ from conector import DataBase
 
 class Trabajador:
 
-    def __init__(self, run, inicio_turno,termino_turno,fcontr,perf_cod):
+    def __init__(self, run, inicio_turno, termino_turno, fcontr, perf_cod):
 
         self.inicio_turno = inicio_turno
         self.termino_turno = termino_turno
@@ -11,7 +11,7 @@ class Trabajador:
         self.perf_cod = perf_cod
         self.run = run 
 
-    def insert_tra(self):
+    def insertar_tra(self):
         sql = f"INSERT INTO trabajadores (tra_inicio_turno, tra_termino_turno, tra_fcontr, per_run, perf_cod) VALUE ('{self.inicio_turno}', '{self.termino_turno}', '{self.fcontr}', {self.run}, {self.perf_cod});"
         db = DataBase()
         db.insert(sql)
@@ -37,7 +37,7 @@ class Trabajador:
     def actualizar_tra(self):
         pass
 
-    def eliminar_tra(cod):
-        sql = 'DELETE FROM trabajadores WHERE tra_cod = {cod};'
+    def eliminar_tra(id):
+        sql = f'DELETE FROM trabajadores WHERE tra_cod = {id};'
         db = DataBase()
         db.delete(sql)

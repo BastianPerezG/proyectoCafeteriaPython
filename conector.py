@@ -27,7 +27,7 @@ class DataBase:
             print(e)
     def close(self):
         self.connection.close()
-        print("La conexion fue cerrada")
+        print("Se ha realizado la siguiente accion: ")
 
     def select(self, tabla,col1,col2,col3,col4,col5,col6,col7):
         cursor = self.connection.cursor()
@@ -53,5 +53,12 @@ class DataBase:
         cursor.execute(sql)
         self.connection.commit()
         self.close()
+
+    def cli_per(self):
+        cursor = self.connection.cursor()
+        cursor.execute(f"SELECT c.cli_cod, p.per_run, p.per_nombre, p.per_app FROM cafeteria.clientes c JOIN cafeteria.personas p ON (c.per_run = p.per_run);")
+        for row in cursor.fetchall():
+            print(row)                 
+                        
 
 db = DataBase()

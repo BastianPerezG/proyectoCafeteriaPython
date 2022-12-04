@@ -27,7 +27,7 @@ class Personas:
         pass
 
     def eliminar(run):
-        sql = 'DELETE FROM personas WHERE per_run = {run};'
+        sql = f'DELETE FROM personas WHERE per_run = {run};'
         db = DataBase()
         db.delete(sql)
         

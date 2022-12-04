@@ -58,17 +58,28 @@ class Menu:
                 perf_cod = int(input("Ingrese 1 para cajero, 2 para administrador y 3 para garzón: \n"))
                 
                 worker = Trabajador(inicio_turno,termino_turno, fcontr, run, perf_cod)
-                worker.insert_tra()
+                worker.insertar_tra()
 
             elif opcion1 == 3: # Ingresar un usuario
                 print("Un usuario")
+                nombre = input("Ingrese el nombre del usuario: \n--->")
+                password = input("Crea tu clave de usuario: \n--->")
+                cli_cod = int(input("Ingrese el codigo de cliente asignado: \n--->"))
+
+                usuario = Usuario(nombre, password, cli_cod)
+                usuario.insertar_usu_cli()
 
             elif opcion1 == 4: # Ingresar un producto
-                print("Un producto")
+                
                 # {self.nombre}','{self.descripcion}', {self.stock},{self.precio}
                 nombre = input("Ingrese el nombre del producto: \n--->")
                 descripcion = input("Agregue una descripcion para este producto: \n--->")
-                stock = int(input(""))
+                stock = int(input("Ingrese la cantidad: \n"))
+                precio = int(input("Ingrese el precio de este producto: \n--->"))
+
+                producto = Productos(nombre, descripcion, stock, precio)
+                producto.insertar_pro()
+                print("======El producto ha sido ingresado con exito=======")                
             else:
                 Menu.__init__()              
 
@@ -77,8 +88,8 @@ class Menu:
             ========Que tipo de datos desea mostrar?======
             1.- De clientes?
             2.- De trabajadores?
-            3.- De usuarios?
-            4.- De productos?
+            3.- De productos?
+            4.- De usuarios?
             0.- Otro numero para volver al menu principal
             ''')
             opcion2 = int(input("Ingrese una opcion: \n--->"))# de que?

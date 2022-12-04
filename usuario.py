@@ -40,7 +40,7 @@ class Usuario:
     def actualizar_usu(self):
         pass
 
-    def eliminar_usu(cod):
-        sql = 'DELETE FROM usuario WHERE usu_cod = {cod};'
+    def eliminar_usu(id):
+        sql = f'DELETE FROM usuario WHERE usu_cod = {id};'
         db = DataBase()
         db.delete(sql)

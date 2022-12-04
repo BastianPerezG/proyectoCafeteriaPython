@@ -32,7 +32,7 @@ class Productos:
 
     def actualizar_pro(self):
         pass
-    def eliminar_pro(cod):
-        sql = 'DELETE FROM productos WHERE pro_cod = {cod};'
+    def eliminar_pro(id):
+        sql = f'DELETE FROM productos WHERE pro_cod = {id};'
         db = DataBase()
         db.delete(sql)
