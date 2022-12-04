@@ -12,7 +12,7 @@ class Trabajador:
         self.run = run 
 
     def insertar_tra(self):
-        sql = f"INSERT INTO trabajadores (tra_inicio_turno, tra_termino_turno, tra_fcontr, per_run, perf_cod) VALUE ('{self.inicio_turno}', '{self.termino_turno}', '{self.fcontr}', {self.run}, {self.perf_cod});"
+        sql = f'INSERT INTO trabajadores (tra_inicio_turno, tra_termino_turno, tra_fcontr, per_run, perf_cod) VALUE ("{self.inicio_turno}", "{self.termino_turno}", {self.fcontr}, {self.run}, {self.perf_cod});'
         db = DataBase()
         db.insert(sql)
     
@@ -34,8 +34,10 @@ class Trabajador:
         db = DataBase()
         db.select_one(tabla,columna, id)
     
-    def actualizar_tra(self):
-        pass
+    def actualizar_tra(id,inicio_turno,termino_turno,perf_cod):
+        sql = f"UPDATE trabajadores SET tra_inicio_turno = '{inicio_turno}', tra_termino_turno = '{termino_turno}', perf_cod = {perf_cod} WHERE tra_cod = {id};"
+        db = DataBase()
+        db.update(sql)
 
     def eliminar_tra(id):
         sql = f'DELETE FROM trabajadores WHERE tra_cod = {id};'

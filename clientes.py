@@ -41,8 +41,10 @@ class Clientes:
         db = DataBase()
         db.select_one(tabla,columna, id)
 
-    def actualizar_cli(self):
-        pass
+    def actualizar_cli(id,puntos,descto):
+        sql = f"UPDATE clientes SET cli_puntos = {puntos}, cli_descto = {descto} WHERE cli_cod = {id};"
+        db = DataBase()
+        db.update(sql)
 
     def eliminar_cli(id):
         sql = f'DELETE FROM clientes WHERE cli_cod = {id};'
