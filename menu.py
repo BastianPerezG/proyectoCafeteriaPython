@@ -227,13 +227,16 @@ class Menu:
             opcion3 = int(input("Ingrese una opcion: \n")) # que actualizar?
             limpiarpantalla()
 
-            if opcion3 == 1: #----------------------------------------------------
+            if opcion3 == 1: #----------------------------------------------------Actualizar Worker
                 Trabajador.mostrar_tra()
                 id = int(input("Elija el id del trabajador que desea modificar: \n--->"))
 
                 limpiarpantalla()
-                Usuario.mostrar_usu_uq(id)
-            elif opcion3 == 2:
+                Trabajador.mostrar_usu_uq()
+                # id,inicio_turno,termino_turno,perf_cod
+                inicio_turno = input("Cambiar el inicio de turno o mantener el actual: \n--->")
+                termino_turno = input("Cambiar el termino de turno o mantener el actual: \n")
+            elif opcion3 == 2: #-------------------------------------------------Actualizar cliente
 
                 Clientes.mostrar_cli()
                 id = int(input("Elija el id del clinte que desea modificar: \n--->"))
@@ -256,7 +259,7 @@ class Menu:
 
                 limpiarpantalla()
                 Menu.__init__()
-            elif opcion3 == 3:
+            elif opcion3 == 3: #------------------------------------------------Actualizar usuario
 
                 Usuario.mostrar_usu()            
                 id = int(input("Elija el id del usuario que desea modificar: \n--->"))
@@ -278,7 +281,7 @@ class Menu:
 
                 limpiarpantalla()
                 Menu.__init__()
-            elif opcion3 == 4:
+            elif opcion3 == 4: #--------------------------------------Actualizar producto
                 Productos.mostrar_pro()
                 id = int(input("Elija el id del producto que desea modificar: \n--->"))
 
