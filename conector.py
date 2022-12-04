@@ -13,7 +13,7 @@ class DataBase:
                 database ='cafeteria'
             )
             self.connection = aux
-            print(aux)
+            
         except Error as e:
             print("Error" + e)
 
@@ -36,19 +36,19 @@ class DataBase:
         for row in cursor.fetchall():
             print(row)
 
-    def select_one(self, tabla,columna, id):
+    def select_one(self, tabla, columna, id):
         cursor = self.connection.cursor()
         cursor.execute(f"SELECT * FROM {tabla} WHERE {columna} = {id} ;")
         seleccion=cursor.fetchone()
         print(seleccion)
 
-    def update(self,sql):
+    def update(self, sql):
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()
         self.close()
     
-    def delete(self,sql):
+    def delete(self, sql):
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()

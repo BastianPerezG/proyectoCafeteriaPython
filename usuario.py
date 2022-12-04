@@ -37,10 +37,12 @@ class Usuario:
         db = DataBase()
         db.select_one(tabla,columna, id)
 
-    def actualizar_usu(self):
-        pass
+    def actualizar_usu(id, nombre, password):
+        sql = f"UPDATE usuarios SET usu_nom = '{nombre}', usu_pass = '{password}' WHERE usu_cod = {id};"
+        db = DataBase()
+        db.update(sql)
 
     def eliminar_usu(id):
-        sql = f'DELETE FROM usuario WHERE usu_cod = {id};'
+        sql = f'DELETE FROM usuarios WHERE usu_cod = {id};'
         db = DataBase()
         db.delete(sql)
