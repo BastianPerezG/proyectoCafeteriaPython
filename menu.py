@@ -3,7 +3,8 @@ from clientes import Clientes
 from productos import Productos
 from trabajadores import Trabajador
 from usuario import Usuario
-
+import time 
+import datetime
 import os
 def limpiarpantalla():
     os.system('cls')
@@ -148,6 +149,7 @@ class Menu:
                     print("Mostraremos un trabajador en especifico")  
                     id = int(input("Ingrese el id del trabajador: \n"))             
                     Trabajador.mostrar_tra_uq(id)
+                    
                 elif opTrab == 2: #Todos los Trabajadores--------------------------->RESPUESTA--<Sub-Sub-Menu
                     print("=======================Lista de trabajadores vigentes en el registro========================= ")
                     Trabajador.mostrar_tra()
@@ -232,10 +234,21 @@ class Menu:
                 id = int(input("Elija el id del trabajador que desea modificar: \n--->"))
 
                 limpiarpantalla()
-                Trabajador.mostrar_usu_uq()
+                Trabajador.mostrar_tra_uq(id)
                 # id,inicio_turno,termino_turno,perf_cod
                 inicio_turno = input("Cambiar el inicio de turno o mantener el actual: \n--->")
                 termino_turno = input("Cambiar el termino de turno o mantener el actual: \n")
+                perf_cod = input("Cambiar el perfil o mantener el actual: \n")
+                
+                Trabajador.actualizar_tra(id,inicio_turno,termino_turno,perf_cod)
+                limpiarpantalla()
+
+                print("=============Se ha actualizado un trabajador con exito=========== \n")
+                Trabajador.mostrar_tra_uq(id)
+                input("Presione una tecla para volve al menu principal: \n")
+
+                limpiarpantalla()
+                Menu.__init__()
             elif opcion3 == 2: #-------------------------------------------------Actualizar cliente
 
                 Clientes.mostrar_cli()

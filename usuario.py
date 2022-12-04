@@ -46,3 +46,6 @@ class Usuario:
         sql = f'DELETE FROM usuarios WHERE usu_cod = {id};'
         db = DataBase()
         db.delete(sql)
+
+    def comprar_usu():
+        pass
