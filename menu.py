@@ -24,8 +24,8 @@ class Menu:
 
         opcion = int(input("Ingrese una opción: \n"))
         limpiarpantalla()
-        
-        if  opcion == 1:# Ingresar algo  ***********************************  **********************************     
+
+        if  opcion == 1:# Ingresar algo  *********************************************************************     
             print('''
             =========Que desea ingresar?===========
             1.- Un cliente?
@@ -37,18 +37,38 @@ class Menu:
             opcion1 = int(input("Ingrese una opcion: \n"))# Ingresar Clientes
             limpiarpantalla()
             if opcion1 == 1: # ingresar un cliente
-                print("Un Cliente")
                 
-                puntos = int(input("Ingrese los puntos del cliente"))
-                descto = float(input("Ingrese el descuento de este cliente"))
-                cli_frecuente = input("Es un cliente frecuente? responda si o no: \n").capitalize()               
+                # aqui esta ingrresando una persona
+                input('''
+                A continuación ingrese los datos personales
+                presione cualquier tecla y continúe! \n
+                ''')
+                run = int(input("Ingrese el rut sin puntos ni guión: \n--->"))
+                nombre = input("Ingrese el nombre: \n--->")
+                app = input("Ingrese el apellido paterno: \n--->")
+                apm = input("Ingrese el apellido materno: \n--->")
+                tel = input("Ingrese el numero de telefono: \n--->")
+                email = input("Ingrese el email de la persona: \n--->")
+                fnac = input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD): \n--->")
+                persona = Personas(run, nombre, app, apm, tel, email, fnac)
+                persona.insertar_per()
+
+                input('''
+                Ahora continue ingresando los datos de cliente
+                presione cualquier tecla y continúe! \n
+                ''')
+
+                # aqui esta ingresando el cliente
+                puntos = int(input("Ingrese los puntos del cliente: \n--->"))
+                descto = float(input("Ingrese el descuento de este cliente: \n--->"))
+                cli_frecuente = input("Es un cliente frecuente? responda si o no: \n--->").capitalize()               
                 
                 if cli_frecuente == "Si":
                     cli_frecuente = True
                 else:
                     cli_frecuente = False
-               
-                cliente = Clientes(puntos, descto, cli_frecuente)
+                
+                cliente = Clientes(puntos, descto, cli_frecuente, run)
                 
                 cliente.insert_cli()
 
@@ -56,16 +76,37 @@ class Menu:
                 input("Presione una tecla para volve al menu principal: \n")
                 limpiarpantalla()
                 Menu.__init__()
-            elif opcion1 == 2:       # Ingresar un trabajador      
+            elif opcion1 == 2:       # Ingresar un trabajador
+                input('''
+                A continuación ingrese los datos personales
+                presione cualquier tecla y continúe! \n
+                ''')
+                run = int(input("Ingrese el rut sin puntos ni guión: \n--->"))
+                nombre = input("Ingrese el nombre: \n--->")
+                app = input("Ingrese el apellido paterno: \n--->")
+                apm = input("Ingrese el apellido materno: \n--->")
+                tel = input("Ingrese el numero de telefono: \n--->")
+                email = input("Ingrese el email de la persona: \n--->")
+                fnac = input("Ingrese la fecha de nacimiento de la persona (En formato YYYY-MM-DD): \n--->")
+
+                persona = Personas(run, nombre, app, apm, tel, email, fnac)
+                persona.insertar_per()  
+
+                input('''
+                Ahora continue ingresando los datos de trabajador
+                presione cualquier tecla y continúe! \n
+                ''')
+
                 # run, inicio_turno,termino_turno,fcontr,perf_cod
-                run = int(input("Digite el rut del trabajador: \n"))
+                
                 inicio_turno = input("Ingrese el inicio de turno en formato 'YYYY-MM-DD HH:MM:SS' : \n")
                 termino_turno = input("Ingrese el termino de turno en formato 'YYYY-MM-DD HH:MM:SS' : \n")
                 fcontr = input("Ingrese la fecha de contratacion del trabajador en formato YYYY-MM-DD : \n")
                 perf_cod = int(input("Ingrese 1 para cajero, 2 para administrador y 3 para garzón: \n"))
                 
-                worker = Trabajador(inicio_turno,termino_turno, fcontr, run, perf_cod)
-                worker.insertar_tra()                
+                trabajador = Trabajador(inicio_turno,termino_turno, fcontr, run, perf_cod)
+                trabajador.insertar_tra()
+
                 print("=============Se a ingresado un nuevo trabajador con exito=========== \n")
                 input("Presione una tecla para volve al menu principal: \n")
                 limpiarpantalla()
@@ -128,9 +169,15 @@ class Menu:
                     print("Mostraremos un cliente especifico")
                     id = int(input("Ingrese el codigo de cliente que quiere mostrar: \n"))
                     Clientes.mostrar_cli_uq(id)
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
                 elif opCli == 2: # Cliente especifico #------------------------------>RESPUESTA--<Sub-Sub-Menu
                     print("Mostraremos a todos los clientes")
                     Clientes.mostrar_cli()
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
                 else:
                     limpiarpantalla()
                     Menu.__init__()
@@ -150,10 +197,16 @@ class Menu:
                     print("Mostraremos un trabajador en especifico")  
                     id = int(input("Ingrese el id del trabajador: \n"))             
                     Trabajador.mostrar_tra_uq(id)
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
                 elif opTrab == 2: #Todos los Trabajadores--------------------------->RESPUESTA--<Sub-Sub-Menu
                     print("=======================Lista de trabajadores vigentes en el registro========================= ")
                     Trabajador.mostrar_tra()
                     print("=======================Lista de trabajadores vigentes en el registro========================= ")
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
                 else:
                     limpiarpantalla()
                     Menu.__init__()
@@ -229,15 +282,27 @@ class Menu:
             opcion3 = int(input("Ingrese una opcion: \n")) # que actualizar?
             limpiarpantalla()
 
-            if opcion3 == 1: #----------------------------------------------------Actualizar Worker
+            if opcion3 == 1: #----------------------------------------------------Actualizar trabajador
                 Trabajador.mostrar_tra()
                 id = int(input("Elija el id del trabajador que desea modificar: \n--->"))
 
                 limpiarpantalla()
-                Trabajador.mostrar_usu_uq()
+                Trabajador.mostrar_tra_uq(id)
                 # id,inicio_turno,termino_turno,perf_cod
-                inicio_turno = input("Cambiar el inicio de turno o mantener el actual: \n--->")
-                termino_turno = input("Cambiar el termino de turno o mantener el actual: \n")
+                inicio_turno = input("Cambiar el inicio de turno o mantener el actual escribalo en formato YYYY-MM-DD HH:MM:SS : \n--->")
+                termino_turno = input("Cambiar el termino de turno o mantener el actual escribalo en formato YYYY-MM-DD HH:MM:SS : \n--->")
+                perf_cod = int(input("Cambie el tipo de trabajo que realiza este trabajador o mantenga el actual: \n--->"))
+                limpiarpantalla()
+
+                Trabajador.actualizar_tra(id)
+
+                print("=============Se ha actualizado un trabajador con exito=========== \n")
+                Trabajador.mostrar_tra_uq(id)
+
+                input("Presione una tecla para volve al menu principal: \n")
+                limpiarpantalla()
+                Menu.__init__()
+
             elif opcion3 == 2: #-------------------------------------------------Actualizar cliente
 
                 Clientes.mostrar_cli()
@@ -246,10 +311,10 @@ class Menu:
                 limpiarpantalla()
                 Clientes.mostrar_cli_uq(id)
 
-                puntos = int(input("Ingrese los puntos acumulados o mantenga los actuales: \n"))
+                puntos = int(input("Ingrese los puntos acumulados o mantenga los actuales: \n--->"))
                 limpiarpantalla()
                 Clientes.mostrar_cli_uq(id)
-                descto = float(input("Ingrese los descuentos o mantenga los actuales: \n"))
+                descto = float(input("Ingrese los descuentos o mantenga los actuales: \n--->"))
                 limpiarpantalla()
                 
                 Clientes.actualizar_cli(id, puntos, descto)
@@ -269,10 +334,10 @@ class Menu:
                 limpiarpantalla()
                 Usuario.mostrar_usu_uq(id)
                 
-                nombre = input("Ingrese el nuevo nombre de usuario o mantenga el mismo de siempre: \n")
+                nombre = input("Ingrese el nuevo nombre de usuario o mantenga el mismo de siempre: \n--->")
                 limpiarpantalla()
                 Usuario.mostrar_usu_uq(id)
-                password = input("Ingrese la nueva clave o mantenga la misma de siempre: \n")               
+                password = input("Ingrese la nueva clave o mantenga la misma de siempre: \n--->")               
 
                 Usuario.actualizar_usu(id, nombre, password)
                 limpiarpantalla()
@@ -286,9 +351,23 @@ class Menu:
             elif opcion3 == 4: #--------------------------------------Actualizar producto
                 Productos.mostrar_pro()
                 id = int(input("Elija el id del producto que desea modificar: \n--->"))
+                # nombre,descripcion, precio, stock
 
                 limpiarpantalla()
-                Usuario.mostrar_usu_uq(id)
+                Productos.mostrar_pro_uq(id)
+                nombre = input("Ingrese el nombre del producto que desea actualizar: \n--->")
+                limpiarpantalla()
+                descripcion = input("Actualice la descripcion o mantenga la anterior: \n--->")
+                limpiarpantalla()
+                precio = int(input("Ingrese el precio que actualmente tiene este producto o mantenga el anterior: \n--->"))
+                limpiarpantalla()
+                Productos.actualizar_pro(id)
+                print("=============Se ha actualizado un producto con exito=========== \n")
+                Productos.mostrar_pro_uq(id)
+                input("Presione una tecla para volve al menu principal: \n")
+
+                limpiarpantalla()
+                Menu.__init__()
             else:
                 limpiarpantalla()
                 Menu.__init__()
@@ -308,8 +387,13 @@ class Menu:
             limpiarpantalla()
 
             if opcion4 == 1: # ---------------------------------------------ELIMINAR CLIENTE
-                
+
+                Clientes.mostrar_cli()
                 id = int(input("Ingrese el id de quien quiere eliminar: \n"))
+                
+                limpiarpantalla()
+                input(f"Se esta eliminando este cliente: {Clientes.mostrar_cli_uq(id)}, presione una tecla para continuar!\n")
+
                 Clientes.eliminar_cli(id)
                 print(f"Se ha eliminado al cliente: {id}")
                 input("Presione una tecla para volve al menu principal: \n")
@@ -317,8 +401,11 @@ class Menu:
                 Menu.__init__()
 
             elif opcion4 == 2: #------------------------------------------ELIMINAR TRABAJADOR
-                
+                Trabajador.mostrar_tra()
                 id = int(input("Ingrese el id de quien quiere eliminar: \n"))
+
+                limpiarpantalla()
+                input(f"Se esta eliminando este trabajador: {Trabajador.mostrar_tra_uq(id)}, presione una tecla para continuar!\n")
                 Trabajador.eliminar_tra(id)
                 print(f"Se ha eliminado el trabajador: {id}")
                 input("Presione una tecla para volve al menu principal: \n")
@@ -326,8 +413,12 @@ class Menu:
                 Menu.__init__()
 
             elif opcion4 == 3: #-------------------------------------------ELIMINAR USUARIO
-                
+                Usuario.mostrar_usu()
                 id = int(input("Ingrese el id de quien quiere eliminar: \n"))
+
+                limpiarpantalla()
+                input(f"Se esta eliminando este usuario: {Usuario.mostrar_usu_uq(id)}, presione una tecla para continuar!\n")
+
                 Usuario.eliminar_usu(id)
                 print(f"Se ha eliminado al usuario: {id}")
                 input("Presione una tecla para volve al menu principal: \n")
@@ -335,10 +426,17 @@ class Menu:
                 Menu.__init__()
 
             elif opcion4 == 4: # -------------------------------------------ELIMINAR PRODUCTO
-                
+                Productos.mostrar_pro()
                 id = int(input("Ingrese el id del producto que quiere eliminar: \n"))
+
+                limpiarpantalla()
+                print(" ")
+                print("Se esta eliminando el siguiente producto: \n")
+                Productos.mostrar_pro_uq(id)
+
                 Productos.eliminar_pro(id)
                 print(f"Se ha eliminado el producto: {id}")
+
                 input("Presione una tecla para volve al menu principal: \n")
                 limpiarpantalla()
                 Menu.__init__()

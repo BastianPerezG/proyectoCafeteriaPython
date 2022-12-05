@@ -6,7 +6,7 @@ from conector import DataBase
 class Clientes:
     # esta funcion agrega o redefine el constructor agregando
     # "puntos" como nuevo parametro    
-    def __init__(self, puntos, descto, cli_frecuente):
+    def __init__(self, puntos, descto, cli_frecuente, run):
     #def __init__(self, run, nombre, app, apm, tel, email, fnac, cod, puntos, descto, cli_frecuente):
         # super().__init__(toma en consideracion estos parametros originales)
         # del constructor en personas
@@ -16,10 +16,11 @@ class Clientes:
         self.puntos = puntos
         self.descto = descto
         self.cli_frecuente = cli_frecuente
+        self.run = run
         
 
     def insert_cli(self):
-        sql = f"INSERT INTO clientes (cli_puntos, cli_descto, cli_frecuente) VALUE ({self.puntos}, {self.descto}, {self.cli_frecuente});"
+        sql = f"INSERT INTO clientes (cli_puntos, cli_descto, cli_frecuente, per_run) VALUE ({self.puntos}, {self.descto}, {self.cli_frecuente}, {self.run});"
         db = DataBase()
         db.insert(sql)
 

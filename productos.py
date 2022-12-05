@@ -1,7 +1,7 @@
 from conector import DataBase
 class Productos: 
 
-    def __init__(self,nombre,descripcion, precio, stock):
+    def __init__(self,nombre,descripcion, stock, precio):
         self.nombre= nombre
         self.descripcion= descripcion
         self.precio = precio
