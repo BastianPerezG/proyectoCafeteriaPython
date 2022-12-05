@@ -35,3 +35,29 @@ class Boletas:
         col7 = " "
         db = DataBase()
         db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
+
+    def mostrar_bol_usu(id):
+        sql = f"SELECT * FROM boletas b JOIN ventas v ON (b.ven_cod = v.ven_cod) JOIN usuarios u ON (v.usu_cod = u.usu_cod) WHERE u.usu_cod = {id};"
+         
+        col1 = "ID"
+        col2 = "IVA"
+        col3 = "TOTAL"
+        col4 = "Código Venta"
+        col5 = " "
+        col6 = " "
+        col7 = " "
+        db = DataBase()
+        db.select_bol_usu(sql, col1,col2,col3,col4,col5,col6,col7)
+
+    def mostrar_bol_cli(id):
+        tabla = 'boletas'
+        columna = 'cli_cod' 
+        col1 = "ID"
+        col2 = "IVA"
+        col3 = "TOTAL"
+        col4 = "Código Venta"
+        col5 = " "
+        col6 = " "
+        col7 = " "
+        db = DataBase()
+        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)

@@ -2,14 +2,14 @@ from conector import DataBase
 
 class Comandas:
 
-    def __init__(self, cantidad, hora, pro_cod,ven_cod):
+    def __init__(self, cantidad, hora, pro_cod, ven_cod):
         self.cantidad = cantidad
         self.hora = hora
         self.pro_cod = pro_cod
         self.ven_cod = ven_cod
 
     def insert_com(self):
-        sql = f"INSERT INTO comandas (com_cantidad, com_hora, pro_cod, ven_cod) VALUE ('{self.cantidad}', '{self.hora}', {self.pro_cod}, {self.ven_cod});"
+        sql = f"INSERT INTO comandas (com_cant, com_hora, pro_cod, ven_cod) VALUE ('{self.cantidad}', '{self.hora}', {self.pro_cod}, {self.ven_cod});"
         db = DataBase()
         db.insert(sql)
 
