@@ -488,7 +488,7 @@ class Menu:
                 op_Ven_cli = int(input("Elija una opción: \n--->"))
 
                 if op_Ven_cli == 1:
-                    Usuario.mostrar_usu()
+                    Clientes.mostrar_cli()
                     cli_cod = int(input("Ingrese su código de usuario: \n--->"))
 
                     
@@ -543,6 +543,18 @@ class Menu:
                             Menu.__init__()
 
                             False
+                elif op_Ven_cli == 2:
+                    
+                    id = int(input("Ingrese su número de cliente: \n--->"))
+                    Boletas.mostrar_bol_cli(id)
+
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
+
+                else:
+                    limpiarpantalla()
+                    Menu.__init__()
             elif opcion5 == 2: # ----------------------------------------VENTA USUARIO
                 
                 
