@@ -18,16 +18,30 @@ class Personas:
         db = DataBase()
         db.insert(sql)
 
-    def mostrar_per(self):
+    def mostrar_per():
         tabla = 'personas' 
+        col1 = "RUN (ID)"
+        col2 = "Nombre"
+        col3 = "Apellido Paterno"
+        col4 = "Apellido Materno"
+        col5 = "Teléfono"
+        col6 = "Email"
+        col7 = "Fecha Nacimiento"
         db = DataBase()
-        db.select(self, tabla)
+        db.select(tabla,col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_per_uq(id):
         tabla = 'personas'
-        columna = 'per_run' 
+        columna = 'per_run'
+        col1 = "RUN (ID)"
+        col2 = "Nombre"
+        col3 = "Apellido Paterno"
+        col4 = "Apellido Materno"
+        col5 = "Teléfono"
+        col6 = "Email"
+        col7 = "Fecha Nacimiento"
         db = DataBase()
-        db.select_one(tabla,columna, id)
+        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
     
     def actualizar_per(run,nombre,apellido,apellido_materno,telefono,email,fecha_nacimiento):
         sql = f"UPDATE personas SET per_nombre = '{nombre}', per_app = '{apellido}', per_apm = '{apellido_materno}', per_tel = '{telefono}', per_email = '{email}', per_fnac = '{fecha_nacimiento}' WHERE per_run = {run};"

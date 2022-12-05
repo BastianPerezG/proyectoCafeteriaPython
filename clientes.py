@@ -39,8 +39,15 @@ class Clientes:
     def mostrar_cli_uq(id):
         tabla = 'clientes'
         columna = 'cli_cod' 
+        col1 = "id"
+        col2 = "Puntos"
+        col3 = "Descuento"
+        col4 = "Cli_Frecuente"
+        col5 = "Run"
+        col6 = " "
+        col7 = " "
         db = DataBase()
-        db.select_one(tabla,columna, id)
+        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
 
     def actualizar_cli(id,puntos,descto):
         sql = f"UPDATE clientes SET cli_puntos = {puntos}, cli_descto = {descto} WHERE cli_cod = {id};"
