@@ -6,8 +6,8 @@ from usuario import Usuario
 from ventas import Ventas
 from comandas import Comandas
 from boletas import Boletas
-import time 
-import datetime
+from datetime import date
+from datetime import datetime
 import os
 def limpiarpantalla():
     os.system('cls')
@@ -470,11 +470,79 @@ class Menu:
             
             ''')
 
-            opcion5 = int(input("Ingrese una opción"))
+            opcion5 = int(input("Ingrese una opción: \n--->"))
             
-           
-            if opcion5 == 1:
-                pass
+            if opcion5 == 1: # ----------------------------------------VENTA CLIENTE
+               
+                
+                print('''
+                
+                =========================Qué desea hacer?========================
+                = 1.- Comprar                                                   =
+                = 2.- Ver historial de compras                                  =
+                = 0.- Presione cualquier número para salir al menu principal    =
+                =================================================================
+
+                ''')       
+
+                op_Ven_cli = int(input("Elija una opción: \n--->"))
+
+                if op_Ven_cli == 1:
+                    Usuario.mostrar_usu()
+                    cli_cod = int(input("Ingrese su código de usuario: \n--->"))
+
+                    
+
+                    subtotal = 0
+                    descrip= " "
+
+                    while True:   
+                        limpiarpantalla()                     
+                        Productos.mostrar_pro()
+                        pro_cod = int(input("Ingrese el código del producto que desea comprar: \n--->"))
+                        cantidad = int(input("Ingrese la cantidad del producto que desea comprar: \n--->"))
+                        subtotal = subtotal + (cantidad * int(input("Ingrese el valor del producto: \n--->"))) 
+
+                        descrip =  descrip + str(f" {cantidad} de {pro_cod}. ")
+
+                        fecha = date.today()
+                        hora = datetime.now()
+
+                        salir = input("Desea algo más? Sí o No: \n--->").capitalize()
+                        
+                        if salir == "Si":
+                            True
+                        else: 
+
+                            iva = subtotal * 0.19
+                            total = subtotal + iva
+                            venta = Ventas(descrip, fecha, subtotal, cli_cod)
+                            venta.insert_ven_usu()
+                            
+                            input("Generando pedido, aprete una tecla para continuar: \n--->")
+                            
+                            limpiarpantalla()
+                            Ventas.mostrar_ven()
+                            ven_cod = int(input("Ingrese el codigo de venta: \n--->"))
+
+                            comanda = Comandas(cantidad, hora, pro_cod, ven_cod)
+                            comanda.insert_com()
+
+                            input("Generando boleta, aprete una tecla para continuar: \n--->")
+                            boleta = Boletas(iva, total,ven_cod)
+                            
+                            boleta.insert_bol()
+
+                            Boletas.mostrar_bol()
+
+                            input('''
+                            Gracias por su compra!\n
+                            para continuar aprete cualquier tecla...
+                            ''')
+
+                            Menu.__init__()
+
+                            False
             elif opcion5 == 2: # ----------------------------------------VENTA USUARIO
                 
                 
@@ -508,8 +576,8 @@ class Menu:
 
                         descrip =  descrip + str(f" {cantidad} de {pro_cod}. ")
 
-                        fecha = 'sysdate'
-                        hora = 'sysdate'
+                        fecha = date.today()
+                        hora = datetime.now()
 
                         salir = input("Desea algo más? Sí o No: \n--->").capitalize()
                         
@@ -549,6 +617,10 @@ class Menu:
                 elif op_Ven_Usu == 2:
                     id = int(input("Ingrese su usuario: \n--->"))
                     Boletas.mostrar_bol_usu(id)
+
+                    input("Presione una tecla para volve al menu principal: \n")
+                    limpiarpantalla()
+                    Menu.__init__()
 
                 else:
                     limpiarpantalla()

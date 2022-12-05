@@ -9,7 +9,7 @@ class DataBase:
             aux = connect(
                 host ='localhost',
                 user ='root',
-                password =  'abc.123', # getpass("Antes de continuar, debe que ingresar la clave de administrador de este sistema: \n-------->"),
+                password =  'Inacap2022', # getpass("Antes de continuar, debe que ingresar la clave de administrador de este sistema: \n-------->"),
                 database ='cafeteria'
             )
             self.connection = aux
@@ -35,6 +35,7 @@ class DataBase:
         print(f"{col1}  {col2}  {col3}  {col4}  {col5}  {col6}  {col7}")
         for row in cursor.fetchall():
             print(row)
+        self.close()
 
     def select_one(self, tabla, columna, id,col1,col2,col3,col4,col5,col6,col7):
         cursor = self.connection.cursor()
@@ -42,12 +43,14 @@ class DataBase:
         print(f"{col1}  {col2}  {col3}  {col4}  {col5}  {col6}  {col7}")
         seleccion=cursor.fetchall()
         print(seleccion)
+        self.close()
 
-    def select_bol_usu(self, sql, col1,col2,col3,col4,col5,col6,col7):
+    def select_bol(self, sql, col1,col2,col3,col4,col5,col6,col7):
         cursor = self.connection.cursor()
         cursor.execute(sql)
         print(f"{col1}  {col2}  {col3}  {col4}  {col5}  {col6}  {col7}")
-        self.connection.commit()
+        for row in cursor.fetchall():
+            print(row)
         self.close()
 
     def update(self, sql):
