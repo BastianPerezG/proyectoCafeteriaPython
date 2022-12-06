@@ -604,7 +604,7 @@ class Menu:
                             iva = subtotal * 0.19
                             total = subtotal + iva
                             venta = Ventas(descrip, fecha, subtotal, cli_cod)
-                            venta.insert_ven_usu()
+                            venta.insert_ven_cli()
                             
                             input("Generando pedido, aprete una tecla para continuar: \n--->")
                             

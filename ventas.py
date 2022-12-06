@@ -1,7 +1,7 @@
 from conector import DataBase
 
 class Ventas:
-    def __init__(self, descripcion, fecha,  subtotal,usu_cod):
+    def __init__(self, descripcion, fecha,  subtotal, usu_cod):
         self.fecha = fecha
         self.descripcion = descripcion
         self.subtotal = subtotal
@@ -13,7 +13,7 @@ class Ventas:
         db.insert(sql)
 
     def insert_ven_cli(self):
-        sql = f"INSERT INTO ventas (ven_descrip, ven_fecha, ven_subtotal,cli_cod) VALUE ('{self.descripcion}', '{self.fecha}', {self.subtotal}, {self.usu_cod});"
+        sql = f"INSERT INTO ventas (ven_descrip, ven_fecha, ven_subtotal, cli_cod) VALUE ('{self.descripcion}', '{self.fecha}', {self.subtotal}, {self.cli_cod});"
         db = DataBase()
         db.insert(sql)
 
