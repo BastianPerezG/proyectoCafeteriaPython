@@ -643,6 +643,7 @@ class Menu:
                     Clientes.mostrar_cli()
 
                     id = int(input("Ingrese su número de cliente: \n--->"))
+                    
                     Boletas.mostrar_bol_cli(id)
 
                     

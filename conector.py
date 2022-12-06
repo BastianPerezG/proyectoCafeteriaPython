@@ -54,6 +54,7 @@ class DataBase:
         self.close()
 
     def update(self, sql):
+        
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()
