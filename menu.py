@@ -18,12 +18,13 @@ def limpiarpantalla():
 class Menu:
     def __init__():
         print('''
-        ========Menú Principal========
-        1.- Ingresar un dato
-        2.- Mostrar un dato
-        3.- Actualizar un dato
-        4.- Eliminar un dato
-        5.- Ingresar al menu ventas
+        ==============Menú Principal=============
+        == 1.- Ingresar un dato                 =
+        == 2.- Mostrar un dato                  =
+        == 3.- Actualizar un dato               =
+        == 4.- Eliminar un dato                 =
+        == 5.- Ingresar al menu ventas          =
+        =========================================
         ''')
 
         opcion = int(input("Ingrese una opción: \n--->"))
@@ -31,13 +32,13 @@ class Menu:
 
         if  opcion == 1:# Ingresar algo  *********************************************************************     
             print('''
-            ======================Que desea ingresar?====================
-            1.- Un cliente?                                             =
-            2.- Un trabajador?                                          =
-            3.- Un usuario?                                             =
-            4.- Un producto?                                            =
-            0.- Presione cualquier número para salir al menu principal  =
-            =============================================================
+            ======================Que desea ingresar?======================
+            = 1.- Un cliente?                                             =
+            = 2.- Un trabajador?                                          =
+            = 3.- Un usuario?                                             =
+            = 4.- Un producto?                                            =
+            = 0.- Presione cualquier número para salir al menu principal  =
+            ===============================================================
             ''')
             opcion1 = int(input("Ingrese una opcion: \n--->"))# Ingresar Clientes
             limpiarpantalla()
@@ -81,14 +82,18 @@ class Menu:
                 
                 cliente.insert_cli()
 
-                print("=============Se a ingresado un nuevo cliente con exito=========== \n")
-                input("Presione una tecla para volve al menu principal: \n")
-                limpiarpantalla()
+                input('''
+                ===========================================================================
+                = Se a ingresado un nuevo cliente al sistema... Presione cualquier tecla! =
+                ===========================================================================
+                ''')
                 Menu.__init__()
             elif opcion1 == 2:       # Ingresar un trabajador
                 input('''
-                A continuación ingrese los datos personales
-                presione cualquier tecla y continúe! \n
+                ===============================================
+                = A continuación ingrese los datos personales =
+                =   presione cualquier tecla y continúe!      =
+                ===============================================
                 ''')
                 run = int(input("Ingrese el rut sin puntos ni guión: \n--->"))
                 nombre = input("Ingrese el nombre: \n--->")
@@ -102,8 +107,10 @@ class Menu:
                 persona.insertar_per()  
 
                 input('''
-                Ahora continue ingresando los datos de trabajador
-                presione cualquier tecla y continúe! \n
+                ======================================================
+                = Ahora continue ingresando los datos del trabajador =
+                = presione cualquier tecla y continúe!               =
+                ======================================================
                 ''')
 
                 # run, inicio_turno,termino_turno,fcontr,perf_cod
@@ -116,20 +123,26 @@ class Menu:
                 trabajador = Trabajador(inicio_turno,termino_turno, fcontr, run, perf_cod)
                 trabajador.insertar_tra()
 
-                print("=============Se a ingresado un nuevo trabajador con exito=========== \n")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = Se a ingresado un nuevo trabajador al sistema... Presione cualquier tecla! =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
             elif opcion1 == 3: # Ingresar un usuario
-                print("Un usuario")
+                
                 nombre = input("Ingrese el nombre del usuario: \n--->")
                 password = input("Crea tu clave de usuario: \n--->")
                 cli_cod = int(input("Ingrese el codigo de cliente asignado: \n--->"))
 
                 usuario = Usuario(nombre, password, cli_cod)
                 usuario.insertar_usu_cli()
-                print("=============Se a ingresado un nuevo usuario con exito=========== \n")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = Se a ingresado un nuevo usuario al sistema... Presione cualquier tecla!    =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
 
@@ -143,8 +156,11 @@ class Menu:
 
                 producto = Productos(nombre, descripcion, stock, precio)
                 producto.insertar_pro()
-                print("=============Se a ingresado un nuevo producto con exito=========== \n")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = Se a ingresado un nuevo producto al sistema... Presione cualquier tecla!   =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()    
 
@@ -153,38 +169,50 @@ class Menu:
 
         elif opcion == 2: # Mostrar algo ********************************************************************
             print('''
-            ========Que tipo de datos desea mostrar?======
-            1.- De clientes?
-            2.- De trabajadores?
-            3.- De productos?
-            4.- De usuarios?
-            0.- Presione cualquier número para salir al menu principal
+            ==================Que tipo de datos desea mostrar?===============
+            = 1.- De clientes?                                              =
+            = 2.- De trabajadores?                                          =
+            = 3.- De productos?                                             =
+            = 4.- De usuarios?                                              =
+            = 0.- Presione cualquier número para salir al menu principal    =
+            =================================================================
             ''')
+
+            
             opcion2 = int(input("Ingrese una opcion: \n--->"))# de que?
             limpiarpantalla()
 
             if opcion2 == 1: # Mostrar un cliente
                 #------------------------------------------------------------------>Sub-Sub_menu 2 OPCIONES
                 print('''
-                =====Especifique====
-                1.- Un cliente en especifico?
-                2.- Todos los clientes registrados?
-                0.- Presione cualquier número para salir al menu principal
+                ===========================Especifique===========================
+                = 1.- Un cliente en especifico?                                 =   
+                = 2.- Todos los clientes registrados?                           =   
+                = 0.- Presione cualquier número para salir al menu principal    =
+                =================================================================
                 ''')
                 opCli = int(input("Especifique!\n"))
                 limpiarpantalla()
 
                 if opCli == 1: # Cliente especifico #------------------------------>RESPUESTA--<Sub-Sub-Menu
-                    print("Mostraremos un cliente especifico")
+                    
                     id = int(input("Ingrese el codigo de cliente que quiere mostrar: \n"))
                     Clientes.mostrar_cli_uq(id)
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 elif opCli == 2: # Cliente especifico #------------------------------>RESPUESTA--<Sub-Sub-Menu
-                    print("Mostraremos a todos los clientes")
+                    
                     Clientes.mostrar_cli()
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 else:
@@ -193,10 +221,11 @@ class Menu:
             elif opcion2 == 2: # Mostrar un trabalhador
                 #------------------------------------------------------------------>Sub-Sub_menu 2 OPCIONES
                 print('''
-                =====Especifique====
-                1.- Un trabajador en especifico?
-                2.- Todos los trabajadores registrados?
-                0.- Presione cualquier número para salir al menu principal
+                ===========================Especifique===========================
+                = 1.- Un trabajador en especifico?                              =   
+                = 2.- Todos los trabajador registrados?                         =   
+                = 0.- Presione cualquier número para salir al menu principal    =
+                =================================================================
                 ''')
 
                 opTrab = int(input("Especifique: \n"))
@@ -206,14 +235,22 @@ class Menu:
                     print("Mostraremos un trabajador en especifico")  
                     id = int(input("Ingrese el id del trabajador: \n"))             
                     Trabajador.mostrar_tra_uq(id)
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 elif opTrab == 2: #Todos los Trabajadores--------------------------->RESPUESTA--<Sub-Sub-Menu
                     print("=======================Lista de trabajadores vigentes en el registro========================= ")
                     Trabajador.mostrar_tra()
                     print("=======================Lista de trabajadores vigentes en el registro========================= ")
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 else:
@@ -221,10 +258,11 @@ class Menu:
                     Menu.__init__()
             elif opcion2 == 3: # Mostrar productos 
                 print('''
-                =====Especifique====
-                1.- Un producto en especifico?
-                2.- Todos los productos registrados?
-                0.- Presione cualquier número para salir al menu principal
+                ===========================Especifique===========================
+                = 1.- Un producto en especifico?                                =   
+                = 2.- Todos los productos registrados?                          =   
+                = 0.- Presione cualquier número para salir al menu principal    =
+                =================================================================
                 ''')
                 opProd = int(input("Especifique: \n"))
                 limpiarpantalla()
@@ -232,14 +270,22 @@ class Menu:
                     print("Mostrar un producto especifico")
                     id = int(input("Ingrese el id del producto: \n"))             
                     Productos.mostrar_pro_uq(id)
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
 
                 elif opProd == 2:
                     print("Mostrar todos los productos")
                     Productos.mostrar_pro()
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 else:
@@ -248,10 +294,11 @@ class Menu:
                 
             elif opcion2 == 4: # Mostrar usuario
                 print('''
-                =====Especifique====
-                1.- Un usuario en especifico?
-                2.- Todos los usuarios registrados?
-                0.- Presione cualquier número para salir al menu principal
+                ===========================Especifique===========================
+                = 1.- Un usuario en especifico?                                 =   
+                = 2.- Todos los usuarios registrados?                           =   
+                = 0.- Presione cualquier número para salir al menu principal    =
+                =================================================================
                 ''')
                 opUsu = int(input("Especifique: \n"))
                 limpiarpantalla()
@@ -260,7 +307,11 @@ class Menu:
                     id = int(input("Ingrese el id del usuario: \n"))             
                     Usuario.mostrar_usu_uq(id)
                     print("Mostrando el usuario seleccionado: \n")
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
 
@@ -268,7 +319,11 @@ class Menu:
                     
                     Usuario.mostrar_usu()
                     print("Mostrando todos los usuarios")
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
                 else:
@@ -280,12 +335,13 @@ class Menu:
         elif opcion == 3: # Actualizar algo*****************************************************************************************
 
             print('''
-            =========Que desea actualizar?========
-            1.- Un trabajador?
-            2.- Un client?
-            3.- Un usuario?
-            4.- Un producto?
-            0.- Presione cualquier número para salir al menu principal
+            ====================Que desea actualizar?========================
+            = 1.- Un trabajador?                                            =
+            = 2.- Un client?                                                =
+            = 3.- Un usuario?                                               =   
+            = 4.- Un producto?                                              =
+            = 0.- Presione cualquier número para salir al menu principal    =
+            =================================================================
             ''')
 
             opcion3 = int(input("Ingrese una opcion: \n")) # que actualizar?
@@ -305,10 +361,14 @@ class Menu:
 
                 Trabajador.actualizar_tra(id, inicio_turno, termino_turno, perf_cod)
 
-                print("=============Se ha actualizado un trabajador con exito=========== \n")
+                print("=============Se ha actualizado un trabajador con exito===========")
                 Trabajador.mostrar_tra_uq(id)
 
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
 
@@ -331,7 +391,11 @@ class Menu:
 
                 print("=============Se ha actualizado un cliente con exito=========== \n")
                 Clientes.mostrar_cli_uq(id)
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
 
                 limpiarpantalla()
                 Menu.__init__()
@@ -351,9 +415,13 @@ class Menu:
                 Usuario.actualizar_usu(id, nombre, password)
                 limpiarpantalla()
 
-                print("=============Se ha actualizado un usuario con exito=========== \n")
+                print("=============Se ha actualizado un usuario con exito===========")
                 Usuario.mostrar_usu_uq(id)
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
 
                 limpiarpantalla()
                 Menu.__init__()
@@ -378,7 +446,11 @@ class Menu:
 
                 Productos.mostrar_pro_uq(id)
 
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
 
                 limpiarpantalla()
                 Menu.__init__()
@@ -389,12 +461,13 @@ class Menu:
         elif opcion == 4: # Eliminar algo******************************************************************************
 
             print('''
-            ===========Que tipo de dato quiere eliminar?=========
-            1.- Un cliente?
-            2.- Un trabajador?
-            3.- Un usuario?
-            4.- Un producto?
-            0.- Presione cualquier número para salir al menu principal      
+            =============Que tipo de dato quiere eliminar?=================
+            = 1.- Un cliente?                                             =
+            = 2.- Un trabajador?                                          =
+            = 3.- Un usuario?                                             =
+            = 4.- Un producto?                                            =
+            = 0.- Presione cualquier número para salir al menu principal  =
+            ===============================================================     
             ''')
 
             opcion4 = int(input("Ingrese una opcion: \n")) # que eliminar?
@@ -410,7 +483,11 @@ class Menu:
 
                 Clientes.eliminar_cli(id)
                 print(f"Se ha eliminado al cliente: {id}")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
 
@@ -422,7 +499,11 @@ class Menu:
                 input(f"Se esta eliminando este trabajador: {Trabajador.mostrar_tra_uq(id)}, presione una tecla para continuar!\n")
                 Trabajador.eliminar_tra(id)
                 print(f"Se ha eliminado el trabajador: {id}")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
 
@@ -435,7 +516,11 @@ class Menu:
 
                 Usuario.eliminar_usu(id)
                 print(f"Se ha eliminado al usuario: {id}")
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()  
 
@@ -453,7 +538,11 @@ class Menu:
                 print(" ")
                 print(f"Se ha eliminado el producto: {id}")
 
-                input("Presione una tecla para volve al menu principal: \n")
+                input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                 limpiarpantalla()
                 Menu.__init__()
 
@@ -462,16 +551,15 @@ class Menu:
                 Menu.__init__()
         elif opcion == 5: #----------------------------------------------> VENDER ALGO
             print(''' 
-            
-        
-            1.- Cliente
-            2.- Usuario
-            0.- Presione cualquier número para salir al menu principal
-            
+            =================================================================       
+            = 1.- Cliente                                                   =
+            = 2.- Usuario                                                   =
+            = 0.- Presione cualquier número para salir al menu principal    =
+            =================================================================
             ''')
 
             opcion5 = int(input("Ingrese una opción: \n--->"))
-            
+            limpiarpantalla()
             if opcion5 == 1: # ----------------------------------------VENTA CLIENTE
                
                 
@@ -486,13 +574,12 @@ class Menu:
                 ''')       
 
                 op_Ven_cli = int(input("Elija una opción: \n--->"))
+                limpiarpantalla()
 
                 if op_Ven_cli == 1:
+
                     Clientes.mostrar_cli()
-                    cli_cod = int(input("Ingrese su código de usuario: \n--->"))
-
-                    
-
+                    cli_cod = int(input("Ingrese su código de cliente: \n--->"))                   
                     subtotal = 0
                     descrip= " "
 
@@ -528,7 +615,11 @@ class Menu:
                             comanda = Comandas(cantidad, hora, pro_cod, ven_cod)
                             comanda.insert_com()
 
-                            input("Generando boleta, aprete una tecla para continuar: \n--->")
+                            input('''
+                            ========================================================
+                            = Generando boleta, aprete una tecla para continuar:   =
+                            ========================================================
+                            ''')
                             boleta = Boletas(iva, total,ven_cod)
                             
                             boleta.insert_bol()
@@ -536,19 +627,29 @@ class Menu:
                             Boletas.mostrar_bol()
 
                             input('''
-                            Gracias por su compra!\n
-                            para continuar aprete cualquier tecla...
+                            =============================================
+                            =         Gracias por su compra!            =
+                            = para continuar aprete cualquier tecla...  =
+                            =============================================
                             ''')
-
+                            limpiarpantalla()
                             Menu.__init__()
 
                             False
                 elif op_Ven_cli == 2:
-                    
+
+                    limpiarpantalla()
+                    Clientes.mostrar_cli()
+
                     id = int(input("Ingrese su número de cliente: \n--->"))
                     Boletas.mostrar_bol_cli(id)
 
-                    input("Presione una tecla para volve al menu principal: \n")
+                    
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
 
@@ -602,7 +703,11 @@ class Menu:
                             venta = Ventas(descrip, fecha, subtotal, usu_cod)
                             venta.insert_ven_usu()
                             
-                            input("Generando pedido, aprete una tecla para continuar: \n--->")
+                            input('''
+                            ==============================================================
+                            = Generando pedido, aprete una tecla para continuar:         =
+                            ==============================================================
+                            ''')
                             
                             limpiarpantalla()
                             Ventas.mostrar_ven()
@@ -611,7 +716,11 @@ class Menu:
                             comanda = Comandas(cantidad, hora, pro_cod, ven_cod)
                             comanda.insert_com()
 
-                            input("Generando boleta, aprete una tecla para continuar: \n--->")
+                            input('''
+                            ==============================================================
+                            = Generando boleta, aprete una tecla para continuar:         =
+                            ==============================================================
+                            ''')
                             boleta = Boletas(iva, total,ven_cod)
                             
                             boleta.insert_bol()
@@ -619,10 +728,12 @@ class Menu:
                             Boletas.mostrar_bol()
 
                             input('''
-                            Gracias por su compra!\n
-                            para continuar aprete cualquier tecla...
+                            =============================================
+                            = Gracias por su compra!                    =   
+                            = para continuar aprete cualquier tecla...  =
+                            =============================================
                             ''')
-
+                            limpiarpantalla()
                             Menu.__init__()
 
                             False
@@ -630,7 +741,11 @@ class Menu:
                     id = int(input("Ingrese su usuario: \n--->"))
                     Boletas.mostrar_bol_usu(id)
 
-                    input("Presione una tecla para volve al menu principal: \n")
+                    input('''
+                ==============================================================================
+                = ......... Presione enter y vuelva al menu principal!                       =
+                ==============================================================================
+                ''')
                     limpiarpantalla()
                     Menu.__init__()
 

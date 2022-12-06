@@ -49,7 +49,7 @@ class Boletas:
         db.select_bol(sql, col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_bol_cli(id):
-        sql = f"SELECT Concat(p.per_nombre, p.per_app),b.bol_cod, b.bol_iva, b.bol_total, v.ven_descrip, v.ven_cod FROM boletas b JOIN ventas v ON (b.ven_cod = v.ven_cod) JOIN clientes c ON (v.cli_cod = c.cli_cod) JOIN personas p ON (c.per_run = p.per_run) WHERE c.cli_cod = {id};"
+        sql = f"SELECT CONCAT(p.per_nombre, p.per_app), b.bol_cod, b.bol_iva, b.bol_total, v.ven_descrip, v.ven_cod FROM boletas b JOIN ventas v ON (b.ven_cod = v.ven_cod) JOIN clientes c ON (v.cli_cod = c.cli_cod) JOIN personas p ON (c.per_run = p.per_run) WHERE c.cli_cod = {id};"
         col1 = "Nombre y Apellido"
         col2 = "Código Boleta"
         col3 = "IVA"
