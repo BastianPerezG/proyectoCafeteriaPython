@@ -9,7 +9,7 @@ class DataBase:
             aux = connect(
                 host ='localhost',
                 user ='root',
-                password =  'Nokia2022', # getpass("Antes de continuar, debe que ingresar la clave de administrador de este sistema: \n-------->"),
+                password =  'abc.123', # getpass("Antes de continuar, debe que ingresar la clave de administrador de este sistema: \n-------->"),
                 database ='cafeteria'
             )
             self.connection = aux
