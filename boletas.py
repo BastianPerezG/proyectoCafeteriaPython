@@ -23,9 +23,9 @@ class Boletas:
         db = DataBase()
         db.select(tabla,col1,col2,col3,col4,col5,col6,col7)
 
-    def mostrar_bol_uq(id):
+    def mostrar_bol_uq(ven_cod):
         tabla = 'boletas'
-        columna = 'bol_cod' 
+        columna = 'ven_cod' 
         col1 = "ID"
         col2 = "IVA"
         col3 = "TOTAL"
@@ -34,7 +34,7 @@ class Boletas:
         col6 = " "
         col7 = " "
         db = DataBase()
-        db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
+        db.select_one_bol(tabla,columna, ven_cod,col1,col2,col3,col4,col5,col6,col7)
 
     def mostrar_bol_usu(id):
         sql = f"SELECT u.usu_nom,b.bol_cod, b.bol_iva, b.bol_total, v.ven_descrip, v.ven_cod FROM boletas b JOIN ventas v ON (b.ven_cod = v.ven_cod) JOIN usuarios u ON (v.usu_cod = u.usu_cod) WHERE u.usu_cod = {id};"

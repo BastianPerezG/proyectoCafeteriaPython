@@ -44,6 +44,14 @@ class DataBase:
         seleccion=cursor.fetchall()
         print(seleccion)
         self.close()
+    
+    def select_one_bol(self, tabla, columna, ven_cod,col1,col2,col3,col4,col5,col6,col7):
+        cursor = self.connection.cursor()
+        cursor.execute(f"SELECT * FROM {tabla} WHERE {columna} = {ven_cod} ;")
+        print(f"{col1}  {col2}  {col3}  {col4}  {col5}  {col6}  {col7}")
+        seleccion=cursor.fetchone()
+        print(seleccion)
+        self.close()
 
     def select_bol(self, sql, col1,col2,col3,col4,col5,col6,col7):
         cursor = self.connection.cursor()
@@ -54,7 +62,7 @@ class DataBase:
         self.close()
 
     def update(self, sql):
-        
+
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()

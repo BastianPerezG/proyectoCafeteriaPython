@@ -303,7 +303,7 @@ class Menu:
                 ''')
                 opUsu = int(input("Especifique: \n"))
                 limpiarpantalla()
-                if opUsu == 1:  #Mostramos un usuario especifico--------------------------->RESPUESTA--<Sub-Sub-Menu
+                if opUsu == 1:  # Mostramos un usuario especifico--------------------------->RESPUESTA--<Sub-Sub-Menu
                     
                     id = int(input("Ingrese el id del usuario: \n"))             
                     Usuario.mostrar_usu_uq(id)
@@ -625,7 +625,7 @@ class Menu:
                             
                             boleta.insert_bol()
 
-                            Boletas.mostrar_bol()
+                            Boletas.mostrar_bol_uq(ven_cod)
 
                             input('''
                             =============================================
@@ -643,7 +643,7 @@ class Menu:
                     Clientes.mostrar_cli()
 
                     id = int(input("Ingrese su número de cliente: \n--->"))
-                    
+
                     Boletas.mostrar_bol_cli(id)
 
                     
@@ -727,7 +727,7 @@ class Menu:
                             
                             boleta.insert_bol()
 
-                            Boletas.mostrar_bol()
+                            Boletas.mostrar_bol_uq(ven_cod)
 
                             input('''
                             =============================================
