@@ -12,10 +12,7 @@ class Ventas:
         db = DataBase()
         db.insert(sql)
 
-    def insert_ven_cli(self):
-        sql = f"INSERT INTO ventas (ven_descrip, ven_fecha, ven_subtotal, cli_cod) VALUE ('{self.descripcion}', '{self.fecha}', {self.subtotal}, {self.cli_cod});"
-        db = DataBase()
-        db.insert(sql)
+    
 
     def mostrar_ven():
         tabla = 'ventas' 
@@ -41,3 +38,17 @@ class Ventas:
         col7 = " "
         db = DataBase()
         db.select_one(tabla,columna, id,col1,col2,col3,col4,col5,col6,col7)
+
+class Venta_cli:    
+    def __init__(self, descripcion, fecha,  subtotal, cli_cod):
+            # descrip, fecha, subtotal, cli_cod
+        self.fecha = fecha
+        self.descripcion = descripcion
+        self.subtotal = subtotal
+        self.cli_cod = cli_cod
+
+    def insert_ven_cli(self):
+
+        sql = f"INSERT INTO ventas (ven_descrip, ven_fecha, ven_subtotal, cli_cod) VALUE ('{self.descripcion}', '{self.fecha}', {self.subtotal}, {self.cli_cod});"
+        db = DataBase()
+        db.insert(sql)

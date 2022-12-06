@@ -4,6 +4,7 @@ from productos import Productos
 from trabajadores import Trabajador
 from usuario import Usuario
 from ventas import Ventas
+from ventas import Venta_cli
 from comandas import Comandas
 from boletas import Boletas
 from datetime import date
@@ -603,7 +604,7 @@ class Menu:
 
                             iva = subtotal * 0.19
                             total = subtotal + iva
-                            venta = Ventas(descrip, fecha, subtotal, cli_cod)
+                            venta = Venta_cli(descrip, fecha, subtotal, cli_cod)
                             venta.insert_ven_cli()
                             
                             input("Generando pedido, aprete una tecla para continuar: \n--->")
