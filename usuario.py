@@ -54,5 +54,3 @@ class Usuario:
         db = DataBase()
         db.delete(sql)
 
-    def comprar_usu():
-        pass
