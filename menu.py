@@ -197,6 +197,7 @@ class Menu:
 
                 if opCli == 1: # Cliente especifico #------------------------------>RESPUESTA--<Sub-Sub-Menu
                     
+                    Clientes.mostrar_cli()
                     id = int(input("Ingrese el codigo de cliente que quiere mostrar: \n"))
                     Clientes.mostrar_cli_uq(id)
                     input('''
@@ -233,9 +234,11 @@ class Menu:
                 limpiarpantalla()
 
                 if opTrab == 1: # Trabajador especifico #-------------------------->RESPUESTA--<Sub-Sub-Menu
-                    print("Mostraremos un trabajador en especifico")  
+
+                    Trabajador.mostrar_tra()
                     id = int(input("Ingrese el id del trabajador: \n"))             
                     Trabajador.mostrar_tra_uq(id)
+
                     input('''
                 ==============================================================================
                 = ......... Presione enter y vuelva al menu principal!                       =
@@ -268,7 +271,8 @@ class Menu:
                 opProd = int(input("Especifique: \n"))
                 limpiarpantalla()
                 if opProd == 1:
-                    print("Mostrar un producto especifico")
+
+                    Productos.mostrar_pro()
                     id = int(input("Ingrese el id del producto: \n"))             
                     Productos.mostrar_pro_uq(id)
                     input('''
@@ -304,7 +308,7 @@ class Menu:
                 opUsu = int(input("Especifique: \n"))
                 limpiarpantalla()
                 if opUsu == 1:  # Mostramos un usuario especifico--------------------------->RESPUESTA--<Sub-Sub-Menu
-                    
+                    Usuario.mostrar_usu()
                     id = int(input("Ingrese el id del usuario: \n"))             
                     Usuario.mostrar_usu_uq(id)
                     print("Mostrando el usuario seleccionado: \n")
@@ -319,7 +323,7 @@ class Menu:
                 elif opUsu == 2: # Mostramos Todos los usuarios --------------------------->RESPUESTA--<Sub-Sub-Menu
                     
                     Usuario.mostrar_usu()
-                    print("Mostrando todos los usuarios")
+                    
                     input('''
                 ==============================================================================
                 = ......... Presione enter y vuelva al menu principal!                       =
